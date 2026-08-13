@@ -71,3 +71,17 @@ fun Bip39ChecksumNote(
         )
     }
 }
+
+@Composable
+fun SafetyFooter(
+    onOpenAirgappedDevice: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier) {
+        SeedSafetyWarning()
+        Bip39ChecksumNote(
+            onOpenAirgappedDevice = onOpenAirgappedDevice,
+            modifier = Modifier.padding(top = 24.dp),
+        )
+    }
+}

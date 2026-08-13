@@ -61,6 +61,7 @@ fun PdfViewerScreen(
     title: String,
     attribution: Attribution,
     assetFileName: String,
+    onOpenAirgappedDevice: () -> Unit,
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -216,23 +217,7 @@ fun PdfViewerScreen(
                     )
                 }
                 else -> {
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .pointerInput(Unit) {
-                                detectTransformGestures { _, pan, zoom, _ ->
-                                    val newScale = (scale * zoom).coerceIn(1f, 4f)
-                                    scale = newScale
-                                    offset = if (newScale == 1f) Offset.Zero else offset + pan
-                                }
-                            }
-                            .graphicsLayer {
-                                scaleX = scale
-                                scaleY = scale
-                                translationX = offset.x
-                                translationY = offset.y
-                            },
-                    ) {
+                    LazyColumn(modifier = Modifier.fillMaxSize()) {
                         itemsIndexed(pageBitmaps) { index, bitmap ->
                             Image(
                                 bitmap = bitmap.asImageBitmap(),
@@ -240,7 +225,33 @@ fun PdfViewerScreen(
                                 contentScale = ContentScale.FillWidth,
                                 modifier = Modifier
                                     .fillMaxWidth()
-                                    .padding(vertical = 4.dp),
+                                    .padding(vertical = 4.dp)
+                                    .pointerInput(Unit) {
+                                        detectTransformGestures { _, pan, zoom, _ ->
+                                            val newScale = (scale * zoom).coerceIn(1f, 4f)
+                                            scale = newScale
+                                            offset = if (newScale == 1f) {
+                                                Offset.Zero
+                                            } else {
+                                                offset + pan
+                                            }
+                                        }
+                                    }
+                                    .graphicsLayer {
+                                        scaleX = scale
+                                        scaleY = scale
+                                        translationX = offset.x
+                                        translationY = offset.y
+                                    },
+                            )
+                        }
+                        item {
+                            SafetyFooter(
+                                onOpenAirgappedDevice = onOpenAirgappedDevice,
+                                modifier = Modifier.padding(
+                                    horizontal = 16.dp,
+                                    vertical = 24.dp,
+                                ),
                             )
                         }
                     }

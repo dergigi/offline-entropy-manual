@@ -27,6 +27,7 @@ import org.dergigi.offlineentropymanual.data.ManualDocument
 fun PathScreen(
     path: EntropyPath,
     onOpenDocument: (ManualDocument) -> Unit,
+    onOpenAirgappedDevice: () -> Unit,
     onBack: () -> Unit,
 ) {
     val sourcesByAuthor = path.documents.groupBy { it.attribution.author }
@@ -104,6 +105,12 @@ fun PathScreen(
                         modifier = Modifier.padding(top = 12.dp),
                     )
                 }
+            }
+            item {
+                SafetyFooter(
+                    onOpenAirgappedDevice = onOpenAirgappedDevice,
+                    modifier = Modifier.padding(top = 24.dp, bottom = 16.dp),
+                )
             }
         }
     }

@@ -90,14 +90,9 @@ fun HomeScreen(
                 HorizontalDivider()
             }
             item {
-                SeedSafetyWarning(
-                    modifier = Modifier.padding(top = 24.dp, bottom = 8.dp),
-                )
-            }
-            item {
-                Bip39ChecksumNote(
+                SafetyFooter(
                     onOpenAirgappedDevice = onOpenAirgappedDevice,
-                    modifier = Modifier.padding(top = 8.dp, bottom = 16.dp),
+                    modifier = Modifier.padding(top = 24.dp, bottom = 16.dp),
                 )
             }
         }

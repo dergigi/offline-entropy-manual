@@ -57,11 +57,6 @@ fun AboutScreen(
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 12.dp),
             )
-            SeedSafetyWarning(modifier = Modifier.padding(top = 24.dp))
-            Bip39ChecksumNote(
-                onOpenAirgappedDevice = onOpenAirgappedDevice,
-                modifier = Modifier.padding(top = 24.dp),
-            )
             Text(
                 text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,
@@ -105,6 +100,10 @@ fun AboutScreen(
                 text = "App code is MIT. Bundled PDFs remain under their authors' rights.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 24.dp),
+            )
+            SafetyFooter(
+                onOpenAirgappedDevice = onOpenAirgappedDevice,
+                modifier = Modifier.padding(top = 32.dp, bottom = 8.dp),
             )
         }
     }

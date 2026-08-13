@@ -34,6 +34,11 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun OfflineEntropyManualApp() {
     val navController = rememberNavController()
+    val openAirgapped = {
+        navController.navigate("airgapped") {
+            launchSingleTop = true
+        }
+    }
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") {
@@ -42,7 +47,7 @@ fun OfflineEntropyManualApp() {
                     navController.navigate("path/${path.id}")
                 },
                 onOpenAbout = { navController.navigate("about") },
-                onOpenAirgappedDevice = { navController.navigate("airgapped") },
+                onOpenAirgappedDevice = openAirgapped,
             )
         }
         composable(
@@ -56,6 +61,7 @@ fun OfflineEntropyManualApp() {
                 onOpenDocument = { document ->
                     navController.navigate("pdf/${document.id}")
                 },
+                onOpenAirgappedDevice = openAirgapped,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -69,17 +75,21 @@ fun OfflineEntropyManualApp() {
                 title = document.title,
                 attribution = document.attribution,
                 assetFileName = document.assetFileName,
+                onOpenAirgappedDevice = openAirgapped,
                 onBack = { navController.popBackStack() },
             )
         }
         composable("about") {
             AboutScreen(
                 onBack = { navController.popBackStack() },
-                onOpenAirgappedDevice = { navController.navigate("airgapped") },
+                onOpenAirgappedDevice = openAirgapped,
             )
         }
         composable("airgapped") {
-            AirgappedBip39ToolScreen(onBack = { navController.popBackStack() })
+            AirgappedBip39ToolScreen(
+                onBack = { navController.popBackStack() },
+                onOpenAirgappedDevice = openAirgapped,
+            )
         }
     }
 }

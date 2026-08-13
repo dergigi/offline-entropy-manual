@@ -39,7 +39,10 @@ private val Confirmations = listOf(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AirgappedBip39ToolScreen(onBack: () -> Unit) {
+fun AirgappedBip39ToolScreen(
+    onBack: () -> Unit,
+    onOpenAirgappedDevice: () -> Unit = {},
+) {
     val context = LocalContext.current
     val checked = remember {
         mutableStateListOf(*BooleanArray(Confirmations.size) { false }.toTypedArray())
@@ -100,6 +103,10 @@ fun AirgappedBip39ToolScreen(onBack: () -> Unit) {
             ) {
                 Text("Open Ian Coleman BIP39 releases")
             }
+            SafetyFooter(
+                onOpenAirgappedDevice = onOpenAirgappedDevice,
+                modifier = Modifier.padding(top = 32.dp, bottom = 8.dp),
+            )
         }
     }
 }
