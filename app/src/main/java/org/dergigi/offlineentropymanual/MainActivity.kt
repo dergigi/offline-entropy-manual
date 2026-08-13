@@ -65,7 +65,7 @@ fun OfflineEntropyManualApp() {
             val document = ManualDocuments.byId(id)
             PdfViewerScreen(
                 title = document.title,
-                attributionAuthor = document.attribution.author,
+                attribution = document.attribution,
                 assetFileName = document.assetFileName,
                 onBack = { navController.popBackStack() },
             )

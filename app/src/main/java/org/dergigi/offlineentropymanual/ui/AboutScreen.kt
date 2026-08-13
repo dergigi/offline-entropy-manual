@@ -61,26 +61,31 @@ fun AboutScreen(onBack: () -> Unit) {
             )
             Text(
                 text = "The guides below are not written by this app. " +
-                    "They are bundled for offline use with credit to their authors.",
+                    "They are bundled for offline use with credit to their authors. " +
+                    "Tap a link to open it in your browser when you have a network.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 8.dp),
             )
-            ManualDocuments.groupedByAuthor().forEach { (author, documents) ->
+            ManualDocuments.groupedByAuthor().forEach { (_, documents) ->
+                val attribution = documents.first().attribution
                 Text(
-                    text = author,
+                    text = attribution.author,
                     style = MaterialTheme.typography.titleSmall,
                     modifier = Modifier.padding(top = 20.dp),
+                )
+                LinkText(
+                    url = attribution.websiteUrl,
+                    label = "Open website",
                 )
                 documents.forEach { document ->
                     Text(
                         text = document.title,
                         style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(top = 8.dp),
+                        modifier = Modifier.padding(top = 10.dp),
                     )
-                    Text(
-                        text = document.attribution.sourceUrl,
-                        style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                    LinkText(
+                        url = document.attribution.documentUrl,
+                        label = "Open source PDF",
                     )
                 }
             }

@@ -3,6 +3,7 @@ package org.dergigi.offlineentropymanual.data
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import java.io.File
@@ -36,5 +37,13 @@ fun openPdfExternally(context: Context, assetFileName: String) {
         context.startActivity(Intent.createChooser(viewIntent, "Open with"))
     } catch (_: ActivityNotFoundException) {
         Toast.makeText(context, "No PDF viewer installed", Toast.LENGTH_SHORT).show()
+    }
+}
+
+fun openUrl(context: Context, url: String) {
+    try {
+        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    } catch (_: ActivityNotFoundException) {
+        Toast.makeText(context, "No browser available", Toast.LENGTH_SHORT).show()
     }
 }

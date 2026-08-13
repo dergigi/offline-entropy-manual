@@ -29,9 +29,7 @@ fun PathScreen(
     onOpenDocument: (ManualDocument) -> Unit,
     onBack: () -> Unit,
 ) {
-    val sources = path.documents
-        .map { it.attribution }
-        .distinctBy { it.author }
+    val sourcesByAuthor = path.documents.groupBy { it.attribution.author }
 
     Scaffold(
         topBar = {
@@ -73,20 +71,26 @@ fun PathScreen(
             item {
                 Column(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)) {
                     Text(
-                        text = if (sources.size == 1) "Source" else "Sources",
+                        text = if (sourcesByAuthor.size == 1) "Source" else "Sources",
                         style = MaterialTheme.typography.titleMedium,
                     )
-                    sources.forEach { attribution ->
+                    sourcesByAuthor.forEach { (author, documents) ->
+                        val attribution = documents.first().attribution
                         Text(
-                            text = attribution.author,
+                            text = author,
                             style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.padding(top = 8.dp),
+                            modifier = Modifier.padding(top = 12.dp),
                         )
-                        Text(
-                            text = attribution.sourceUrl,
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        LinkText(
+                            url = attribution.websiteUrl,
+                            label = "Open website",
                         )
+                        documents.forEach { document ->
+                            LinkText(
+                                url = document.attribution.documentUrl,
+                                label = "Open source PDF: ${document.title}",
+                            )
+                        }
                     }
                     Text(
                         text = "Original authors retain rights to these documents. " +
