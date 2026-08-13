@@ -82,10 +82,20 @@ fun AppVersionFooter(modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val muted = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.55f)
     val linkColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.75f)
+    val releasesUrl = "https://github.com/dergigi/offline-entropy-manual/releases"
     val commitUrl =
         "https://github.com/dergigi/offline-entropy-manual/commit/${BuildConfig.GIT_HASH}"
     val label = buildAnnotatedString {
-        append("v${BuildConfig.VERSION_NAME} · ")
+        withLink(
+            LinkAnnotation.Clickable(
+                tag = "version",
+                styles = TextLinkStyles(style = SpanStyle(color = linkColor)),
+                linkInteractionListener = { openUrl(context, releasesUrl) },
+            ),
+        ) {
+            append("v${BuildConfig.VERSION_NAME}")
+        }
+        append(" · ")
         withLink(
             LinkAnnotation.Clickable(
                 tag = "git-hash",
