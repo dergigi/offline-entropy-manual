@@ -27,6 +27,30 @@ object ManualDocuments {
             subtitle = "Create a backup with playing cards",
             assetFileName = "seed-picker-solitaire.pdf",
         ),
+        ManualDocument(
+            id = "coinflip-guide",
+            title = "Coin Flip Seed Guide",
+            subtitle = "Create a backup with coin flips",
+            assetFileName = "coin-flip-seed-guide.pdf",
+        ),
+        ManualDocument(
+            id = "coinflip-sheet",
+            title = "Coin Flip Seed Sheet",
+            subtitle = "Worksheet for coin flip seeds",
+            assetFileName = "coin-flip-seed-sheet.pdf",
+        ),
+        ManualDocument(
+            id = "coinflip-passphrase",
+            title = "Coin Flip Passphrase Sheet",
+            subtitle = "Worksheet for a coin flip passphrase",
+            assetFileName = "coin-flip-passphrase-sheet.pdf",
+        ),
+        ManualDocument(
+            id = "bip39",
+            title = "BIP39 Wordlist",
+            subtitle = "Word list for the coin flip guide",
+            assetFileName = "bip39-wordlist.pdf",
+        ),
     )
 
     fun byId(id: String): ManualDocument =

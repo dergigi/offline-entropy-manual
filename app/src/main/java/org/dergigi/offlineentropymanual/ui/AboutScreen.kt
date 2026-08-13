@@ -63,7 +63,12 @@ fun AboutScreen(onBack: () -> Unit) {
                     "• https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf\n" +
                     "• https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf\n\n" +
                     "Jimbojw (Seed Picker Solitaire):\n" +
-                    "• https://jimbojw.github.io/seed-picker-solitaire/seed-picker-solitaire.pdf",
+                    "• https://jimbojw.github.io/seed-picker-solitaire/seed-picker-solitaire.pdf\n\n" +
+                    "The Bitcoin Hole:\n" +
+                    "• https://thebitcoinhole.com/blog/files/coin-flip-seed-guide.pdf\n" +
+                    "• https://thebitcoinhole.com/blog/files/coin-flip-seed-sheet.pdf\n" +
+                    "• https://thebitcoinhole.com/blog/files/coin-flip-passphrase-sheet.pdf\n" +
+                    "• https://thebitcoinhole.com/blog/files/bip39-wordlist.pdf",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 8.dp),
             )
