@@ -88,6 +88,11 @@ fun HomeScreen(
                 )
                 HorizontalDivider()
             }
+            item {
+                SeedSafetyWarning(
+                    modifier = Modifier.padding(top = 24.dp, bottom = 16.dp),
+                )
+            }
         }
     }
 }
