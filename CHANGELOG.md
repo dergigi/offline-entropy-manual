@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - README banner image.
 
+### Changed
+
+- App launcher icon to the notebook artwork.
+
 ### Fixed
 
 - Point Zapstore at `CHANGELOG.md` via `release_notes` so releases show notes instead of "No notes".
