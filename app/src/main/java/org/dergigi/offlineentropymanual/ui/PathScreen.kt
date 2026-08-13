@@ -29,6 +29,10 @@ fun PathScreen(
     onOpenDocument: (ManualDocument) -> Unit,
     onBack: () -> Unit,
 ) {
+    val sources = path.documents
+        .map { it.attribution }
+        .distinctBy { it.author }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -65,6 +69,33 @@ fun PathScreen(
                     document = document,
                     onClick = { onOpenDocument(document) },
                 )
+            }
+            item {
+                Column(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)) {
+                    Text(
+                        text = if (sources.size == 1) "Source" else "Sources",
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    sources.forEach { attribution ->
+                        Text(
+                            text = attribution.author,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(top = 8.dp),
+                        )
+                        Text(
+                            text = attribution.sourceUrl,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        )
+                    }
+                    Text(
+                        text = "Original authors retain rights to these documents. " +
+                            "This app redistributes them for offline use with attribution.",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                        modifier = Modifier.padding(top = 12.dp),
+                    )
+                }
             }
         }
     }

@@ -17,6 +17,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import org.dergigi.offlineentropymanual.data.ManualDocuments
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -54,27 +55,37 @@ fun AboutScreen(onBack: () -> Unit) {
                 modifier = Modifier.padding(top = 12.dp),
             )
             Text(
-                text = "Documents",
+                text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(top = 24.dp),
             )
             Text(
-                text = "BitBox Swiss AG:\n" +
-                    "• https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf\n" +
-                    "• https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf\n\n" +
-                    "Jimbojw (Seed Picker Solitaire):\n" +
-                    "• https://jimbojw.github.io/seed-picker-solitaire/seed-picker-solitaire.pdf\n\n" +
-                    "The Bitcoin Hole:\n" +
-                    "• https://thebitcoinhole.com/blog/files/coin-flip-seed-guide.pdf\n" +
-                    "• https://thebitcoinhole.com/blog/files/coin-flip-seed-sheet.pdf\n" +
-                    "• https://thebitcoinhole.com/blog/files/coin-flip-passphrase-sheet.pdf\n" +
-                    "• https://thebitcoinhole.com/blog/files/bip39-wordlist.pdf",
+                text = "The guides below are not written by this app. " +
+                    "They are bundled for offline use with credit to their authors.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 8.dp),
             )
+            ManualDocuments.groupedByAuthor().forEach { (author, documents) ->
+                Text(
+                    text = author,
+                    style = MaterialTheme.typography.titleSmall,
+                    modifier = Modifier.padding(top = 20.dp),
+                )
+                documents.forEach { document ->
+                    Text(
+                        text = document.title,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                    Text(
+                        text = document.attribution.sourceUrl,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+                    )
+                }
+            }
             Text(
-                text = "App code is separate from the bundled documents. " +
-                    "Original authors retain rights to their PDFs; this app only redistributes them for offline use with attribution.",
+                text = "App code is MIT. Bundled PDFs remain under their authors' rights.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 24.dp),
             )

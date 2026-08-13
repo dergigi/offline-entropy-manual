@@ -19,7 +19,9 @@ fun DocumentListItem(
 ) {
     ListItem(
         headlineContent = { Text(document.title) },
-        supportingContent = { Text(document.subtitle) },
+        supportingContent = {
+            Text("${document.subtitle}\n${document.attribution.author}")
+        },
         leadingContent = {
             Icon(Icons.AutoMirrored.Outlined.MenuBook, contentDescription = null)
         },
