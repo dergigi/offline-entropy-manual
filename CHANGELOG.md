@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Zapstore publish uses `zapstore.yaml` so Keep a Changelog release notes are included (bare APK publish showed "No notes").
+
 ## [1.2.1] - 2026-08-13
 
 ### Fixed

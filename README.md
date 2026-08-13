@@ -42,6 +42,8 @@ export SIGN_WITH='nsec1…'   # or bunker://… or browser
 ./scripts/zapstore-publish.sh
 ```
 
+The script publishes through `zapstore.yaml` (not a bare APK path) so `release_notes` from [`CHANGELOG.md`](CHANGELOG.md) are included. Use `ZSP_EXTRA_ARGS='--overwrite-release'` to replace an already-published version.
+
 First publish links the APK signing certificate to your Nostr identity (NIP-C1) and whitelists the repo via `zapstore.yaml`.
 
 ## License

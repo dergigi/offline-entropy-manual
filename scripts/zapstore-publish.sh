@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Publish Offline Entropy Manual to Zapstore.
 # Requires: zsp on PATH, SIGN_WITH set to nsec1… / bunker://… / browser
+#
+# Always publishes via a zapstore.yaml-derived config so release_notes
+# (CHANGELOG.md) are applied. Publishing a bare .apk skips the config and
+# yields "No notes" in Zapstore.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -23,7 +27,9 @@ APK="${1:-app/build/outputs/apk/release/app-release.apk}"
 if [[ ! -f "$APK" ]]; then
   echo "Release APK missing at $APK — building assembleRelease…"
   ./gradlew :app:assembleRelease
+  APK="app/build/outputs/apk/release/app-release.apk"
 fi
+APK="$(cd "$(dirname "$APK")" && pwd)/$(basename "$APK")"
 
 export GITHUB_TOKEN="${GITHUB_TOKEN:-$(gh auth token 2>/dev/null || true)}"
 
@@ -56,21 +62,25 @@ if [[ -f "$CERT" && "${SKIP_CERT_LINK:-}" != "1" ]]; then
   fi
 fi
 
+# Keep committed zapstore.yaml metadata (including release_notes) while
+# pointing at the local signed APK for this publish run.
+PUBLISH_CFG="$(mktemp -t oem-zapstore.XXXXXX.yaml)"
+cleanup() { rm -f "$PUBLISH_CFG"; }
+trap cleanup EXIT
+
+{
+  # Drop any existing release_source so we can set a local one.
+  grep -v '^release_source:' zapstore.yaml || true
+  echo "release_source: $APK"
+} > "$PUBLISH_CFG"
+
 echo "Publishing to Zapstore (notes from CHANGELOG.md via zapstore.yaml)…"
-# Prefer config so release_notes are applied. Pass a local APK when provided
-# (or present at the default path); otherwise zsp fetches the latest GitHub release.
-if [[ -f "$APK" ]]; then
-  zsp publish "$APK" \
-    -r https://github.com/dergigi/offline-entropy-manual \
-    -m github \
-    --skip-preview \
-    --skip-certificate-linking \
-    ${ZSP_EXTRA_ARGS:-}
-else
-  zsp publish zapstore.yaml \
-    --skip-preview \
-    --skip-certificate-linking \
-    ${ZSP_EXTRA_ARGS:-}
-fi
+echo "  APK: $APK"
+echo "  notes: $(grep '^release_notes:' "$PUBLISH_CFG" | sed 's/^release_notes:[[:space:]]*//')"
+
+zsp publish "$PUBLISH_CFG" \
+  --skip-preview \
+  --skip-certificate-linking \
+  ${ZSP_EXTRA_ARGS:-}
 
 echo "Done. Check Zapstore for org.dergigi.offlineentropymanual"
