@@ -27,9 +27,7 @@ val SeedSafetyWarningBullets = listOf(
     "Do not read it aloud.",
     "Write it down on paper.",
     "Better yet, stamp it into steel.",
-    "Keep more than one backup.",
-    "Store backups safely.",
-    "Store them in different locations.",
+    "Consider the 3-2-1 backup rule.",
     "Do your own research.",
     "Use at your own risk.",
 )
