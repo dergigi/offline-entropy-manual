@@ -64,8 +64,7 @@ fun Backup321Screen(
             }
             Text(
                 text = "Seed backups are not ordinary files. Anyone who finds a copy can " +
-                    "steal your bitcoin, so protect each one and only share a location with " +
-                    "people you trust.",
+                    "steal your bitcoin, so protect each one.",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 20.dp),
             )
