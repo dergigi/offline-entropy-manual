@@ -1,5 +1,6 @@
 repository: https://github.com/dergigi/offline-entropy-manual
 pubkey: npub1dergggklka99wwrs92yz8wdjs952h2ux2ha2ed598ngwu9w7a6fsh9xzpc
+changelog: CHANGELOG.md
 
 name: Offline Entropy Manual
 summary: Offline guides for generating Bitcoin seed backups with dice, coins, and cards
