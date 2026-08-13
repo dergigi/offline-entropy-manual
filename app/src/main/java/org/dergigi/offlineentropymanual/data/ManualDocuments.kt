@@ -51,6 +51,12 @@ object ManualDocuments {
         documentUrl = documentUrl,
     )
 
+    private fun econoalchemist(documentUrl: String) = Attribution(
+        author = "econoalchemist",
+        websiteUrl = "https://seedsigner.econoalchemist.com/",
+        documentUrl = documentUrl,
+    )
+
     val all = listOf(
         ManualDocument(
             id = "howto",
@@ -141,6 +147,15 @@ object ManualDocuments {
             assetFileName = "bip39-english-cutout.pdf",
             attribution = bip39Bips(
                 "https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt",
+            ),
+        ),
+        ManualDocument(
+            id = "seedsigner-generate",
+            title = "Generate a New Seed (SeedSigner)",
+            subtitle = "Camera, dice, checksum word, and import",
+            assetFileName = "seedsigner-generate-seed.pdf",
+            attribution = econoalchemist(
+                "https://seedsigner.econoalchemist.com/04_Generate-Seed.html",
             ),
         ),
     )

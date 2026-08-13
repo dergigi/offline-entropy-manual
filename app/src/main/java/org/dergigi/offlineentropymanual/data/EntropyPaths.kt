@@ -45,7 +45,13 @@ object EntropyPaths {
             id = "printer-scissors",
             title = "Printer and scissors",
             subtitle = "Cut-out BIP39 word list",
-            documentIds = listOf("bip39-cutout"),
+            documentIds = listOf("bip39-cutout", "seedsigner-generate"),
+        ),
+        EntropyPath(
+            id = "seedsigner",
+            title = "SeedSigner",
+            subtitle = "Camera, dice, or calculate checksum word",
+            documentIds = listOf("seedsigner-generate", "bip39-cutout"),
         ),
         EntropyPath(
             id = "d8-d16",

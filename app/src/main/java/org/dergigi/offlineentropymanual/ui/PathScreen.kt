@@ -88,7 +88,11 @@ fun PathScreen(
                         documents.forEach { document ->
                             LinkText(
                                 url = document.attribution.documentUrl,
-                                label = "Open source PDF: ${document.title}",
+                                label = if (document.attribution.documentUrl.endsWith(".html")) {
+                                    "Open source: ${document.title}"
+                                } else {
+                                    "Open source PDF: ${document.title}"
+                                },
                             )
                         }
                     }

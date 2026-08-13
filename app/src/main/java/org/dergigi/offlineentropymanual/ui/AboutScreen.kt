@@ -86,7 +86,11 @@ fun AboutScreen(onBack: () -> Unit) {
                     )
                     LinkText(
                         url = document.attribution.documentUrl,
-                        label = "Open source PDF",
+                        label = if (document.attribution.documentUrl.endsWith(".html")) {
+                            "Open source"
+                        } else {
+                            "Open source PDF"
+                        },
                     )
                 }
             }

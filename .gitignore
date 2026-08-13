@@ -37,3 +37,6 @@ captures/
 .kotlin/
 
 emulator-home*.png
+
+# Regenerable SeedSigner guide screenshots (downloaded by generate script)
+scripts/seedsigner-guide/assets/

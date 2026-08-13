@@ -15,6 +15,7 @@ import androidx.compose.material.icons.outlined.Casino
 import androidx.compose.material.icons.outlined.ContentCut
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.JoinInner
+import androidx.compose.material.icons.outlined.QrCodeScanner
 import androidx.compose.material.icons.outlined.Style
 import androidx.compose.material.icons.outlined.Toll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -117,5 +118,6 @@ private fun pathIcon(pathId: String): ImageVector = when (pathId) {
     "coin" -> Icons.Outlined.Toll
     "cards" -> Icons.Outlined.Style
     "printer-scissors" -> Icons.Outlined.ContentCut
+    "seedsigner" -> Icons.Outlined.QrCodeScanner
     else -> Icons.Outlined.Info
 }
