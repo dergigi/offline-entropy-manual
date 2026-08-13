@@ -56,11 +56,21 @@ if [[ -f "$CERT" && "${SKIP_CERT_LINK:-}" != "1" ]]; then
   fi
 fi
 
-echo "Publishing local APK to Zapstore…"
-zsp publish "$APK" \
-  -r https://github.com/dergigi/offline-entropy-manual \
-  -m github \
-  --skip-preview \
-  --skip-certificate-linking
+echo "Publishing to Zapstore (notes from CHANGELOG.md via zapstore.yaml)…"
+# Prefer config so release_notes are applied. Pass a local APK when provided
+# (or present at the default path); otherwise zsp fetches the latest GitHub release.
+if [[ -f "$APK" ]]; then
+  zsp publish "$APK" \
+    -r https://github.com/dergigi/offline-entropy-manual \
+    -m github \
+    --skip-preview \
+    --skip-certificate-linking \
+    ${ZSP_EXTRA_ARGS:-}
+else
+  zsp publish zapstore.yaml \
+    --skip-preview \
+    --skip-certificate-linking \
+    ${ZSP_EXTRA_ARGS:-}
+fi
 
 echo "Done. Check Zapstore for org.dergigi.offlineentropymanual"
