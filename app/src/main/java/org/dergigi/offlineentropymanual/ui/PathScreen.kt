@@ -63,6 +63,21 @@ fun PathScreen(
                     )
                 }
             }
+            item {
+                Column(modifier = Modifier.padding(bottom = 20.dp)) {
+                    Text(
+                        text = "Before you begin",
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    path.beforeYouBegin.forEach { point ->
+                        Text(
+                            text = "• $point",
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(top = 6.dp, start = 4.dp),
+                        )
+                    }
+                }
+            }
             items(path.documents, key = { it.id }) { document ->
                 DocumentListItem(
                     document = document,

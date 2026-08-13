@@ -5,24 +5,50 @@ data class EntropyPath(
     val title: String,
     val subtitle: String,
     val documentIds: List<String>,
+    val beforeYouBegin: List<String>,
 ) {
     val documents: List<ManualDocument>
         get() = documentIds.map(ManualDocuments::byId)
 }
 
 object EntropyPaths {
+    // Adapted from BitBox Diceware, The Bitcoin Hole coin-flip guide, and Seed Picker Solitaire.
+    private val privacyChecks = listOf(
+        "Work alone in a private room.",
+        "Turn off phones and other electronics, or leave them elsewhere.",
+        "Cover cameras and unplug smart speakers or microphones.",
+        "Do not say numbers or recovery words out loud.",
+    )
+
+    private val diceChecks = listOf(
+        "Prefer casino-grade dice.",
+        "Roll them properly for good randomness.",
+    )
+
+    private val coinChecks = listOf(
+        "Flip from your thumb and let the coin land on the table.",
+        "Vary the height and force of each flip.",
+    )
+
+    private val cardChecks = listOf(
+        "Use an ordinary deck of playing cards.",
+        "Shuffle the deck thoroughly before you start.",
+    )
+
     val all = listOf(
         EntropyPath(
             id = "dice",
             title = "Dice only",
             subtitle = "BitBox Diceware seed backup",
             documentIds = listOf("howto", "lookup"),
+            beforeYouBegin = diceChecks + privacyChecks,
         ),
         EntropyPath(
             id = "dice-coin",
             title = "Dice and coin",
             subtitle = "Diceware seed, coin-flip passphrase",
             documentIds = listOf("howto", "lookup", "coinflip-passphrase"),
+            beforeYouBegin = diceChecks + coinChecks + privacyChecks,
         ),
         EntropyPath(
             id = "coin",
@@ -34,12 +60,14 @@ object EntropyPaths {
                 "coinflip-passphrase",
                 "bip39",
             ),
+            beforeYouBegin = coinChecks + privacyChecks,
         ),
         EntropyPath(
             id = "cards",
             title = "Playing cards",
             subtitle = "Seed Picker Solitaire",
             documentIds = listOf("solitaire"),
+            beforeYouBegin = cardChecks + privacyChecks,
         ),
         EntropyPath(
             id = "d8-d16",
@@ -50,12 +78,14 @@ object EntropyPaths {
                 "entropy-worksheet",
                 "entropy-dictionary",
             ),
+            beforeYouBegin = diceChecks + privacyChecks,
         ),
         EntropyPath(
             id = "printer-scissors",
             title = "Printer and scissors",
             subtitle = "Cut-out BIP39 word list",
             documentIds = listOf("bip39-cutout"),
+            beforeYouBegin = privacyChecks,
         ),
     )
 
