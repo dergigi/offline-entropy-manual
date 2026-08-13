@@ -1,6 +1,7 @@
 package org.dergigi.offlineentropymanual.ui
 
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.graphics.pdf.PdfRenderer
 import android.os.ParcelFileDescriptor
 import androidx.compose.foundation.Image
@@ -95,6 +96,9 @@ fun PdfViewerScreen(
                                     heightPx,
                                     Bitmap.Config.ARGB_8888,
                                 ).also { bitmap ->
+                                    // PdfRenderer draws ink on an uncleared bitmap; without a
+                                    // white page fill, dark theme shows black text on black.
+                                    bitmap.eraseColor(Color.WHITE)
                                     page.render(
                                         bitmap,
                                         null,
