@@ -86,6 +86,11 @@ object EntropyPaths {
             title = "Printer and scissors",
             subtitle = "Cut-out BIP39 word list",
             documentIds = listOf("bip39-cutout"),
+            beforeYouBegin = listOf(
+                "Use a proper bowl or container.",
+                "Mix the slips thoroughly.",
+                "Put each slip back after you draw it.",
+            ),
         ),
     )
 

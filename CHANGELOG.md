@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Before you begin checks on the printer and scissors path.
+
 ### Fixed
 
 - Zapstore publish uses `zapstore.yaml` so Keep a Changelog release notes are included (bare APK publish showed "No notes").
