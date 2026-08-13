@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Casino
+import androidx.compose.material.icons.outlined.ContentCut
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.JoinInner
 import androidx.compose.material.icons.outlined.Style
@@ -110,5 +111,6 @@ private fun pathIcon(pathId: String): ImageVector = when (pathId) {
     "dice-coin" -> Icons.Outlined.JoinInner
     "coin" -> Icons.Outlined.Toll
     "cards" -> Icons.Outlined.Style
+    "printer-scissors" -> Icons.Outlined.ContentCut
     else -> Icons.Outlined.Info
 }

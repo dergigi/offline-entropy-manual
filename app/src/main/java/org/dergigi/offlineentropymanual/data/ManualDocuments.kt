@@ -45,6 +45,12 @@ object ManualDocuments {
         documentUrl = documentUrl,
     )
 
+    private fun bip39Phrase(documentUrl: String) = Attribution(
+        author = "bip39-phrase.com",
+        websiteUrl = "https://bip39-phrase.com/",
+        documentUrl = documentUrl,
+    )
+
     val all = listOf(
         ManualDocument(
             id = "howto",
@@ -127,6 +133,13 @@ object ManualDocuments {
             subtitle = "Word list for the D8/D16 workshop",
             assetFileName = "entropy-page-dictionary.pdf",
             attribution = entropyPage("https://entropy.page/files/dictionary.pdf"),
+        ),
+        ManualDocument(
+            id = "bip39-phrase-list",
+            title = "BIP39 English Word List",
+            subtitle = "Printable numbered list for cutting out words",
+            assetFileName = "bip39-phrase-english-word-list.pdf",
+            attribution = bip39Phrase("https://bip39-phrase.com/english-word-list.pdf"),
         ),
     )
 

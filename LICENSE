@@ -27,4 +27,6 @@ This MIT license covers the application source code only.
 Bundled PDF guides under app/src/main/assets/ are not covered by this license.
 They remain under their authors' terms. Known example: BitBox Diceware materials
 are Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
-See README.md and the app's About screen for attribution and source links.
+The bip39-phrase.com English word list is bundled with its bottom promo footer
+removed for offline printing. See README.md and the app's About screen for
+attribution and source links.
