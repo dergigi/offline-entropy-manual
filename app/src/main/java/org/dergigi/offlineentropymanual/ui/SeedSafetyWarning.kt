@@ -29,7 +29,7 @@ val SeedSafetyWarningBullets = listOf(
     "Better yet, stamp it into steel.",
     "Keep more than one backup.",
     "Do your own research.",
-    "Use this at your own risk.",
+    "Use at your own risk.",
 )
 
 @Composable
