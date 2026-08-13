@@ -19,9 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 private val RulePoints = listOf(
-    "3 copies of your seed backup",
-    "on at least 2 different kinds of media (for example paper and steel)",
-    "with 1 copy stored in a different physical location",
+    "3 copies of your seed",
+    "on 2 different media (e.g. paper and steel)",
+    "with 1 copy in another location",
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
