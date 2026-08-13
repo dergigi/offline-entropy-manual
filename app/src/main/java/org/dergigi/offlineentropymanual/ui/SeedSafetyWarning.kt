@@ -14,8 +14,10 @@ const val SeedSafetyWarningText =
         "your bitcoins."
 
 const val Bip39ChecksumNoteText =
-    "The last word of a BIP39 seed (the 12th or 24th) is a checksum. It has to be " +
-        "calculated by a hardware wallet or some other airgapped device."
+    "The last word of a BIP39 seed (the 12th or 24th) is a checksum. After you have " +
+        "the first 11 or 23 words, calculate it on a hardware wallet that supports " +
+        "that step, such as SeedSigner, BitBox02, or Blockstream Jade, or on some " +
+        "other airgapped device. Do not use a website or phone app."
 
 @Composable
 fun SeedSafetyWarning(modifier: Modifier = Modifier) {
