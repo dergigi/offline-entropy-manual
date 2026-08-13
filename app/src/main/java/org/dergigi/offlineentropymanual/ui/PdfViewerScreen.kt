@@ -15,7 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.OpenInNew
+import androidx.compose.material.icons.automirrored.outlined.OpenInNew
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -142,7 +142,7 @@ fun PdfViewerScreen(
                 actions = {
                     IconButton(onClick = { openPdfExternally(context, assetFileName) }) {
                         Icon(
-                            Icons.Outlined.OpenInNew,
+                            Icons.AutoMirrored.Outlined.OpenInNew,
                             contentDescription = "Open in another app",
                         )
                     }
