@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-08-13
+
 ### Fixed
 
 - Built-in PDF viewer page fill so documents stay readable in dark mode.
@@ -56,7 +58,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App footer with semantic version (links to GitHub releases) and git hash (links to the commit).
 - Zapstore publishing metadata and release signing support.
 
-[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/dergigi/offline-entropy-manual/releases/tag/v1.0.0
