@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
@@ -26,8 +27,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import org.dergigi.offlineentropymanual.R
 import org.dergigi.offlineentropymanual.data.EntropyPath
 import org.dergigi.offlineentropymanual.data.EntropyPaths
 
@@ -75,7 +79,7 @@ fun HomeScreen(
                     headlineContent = { Text(path.title) },
                     supportingContent = { Text(path.subtitle) },
                     leadingContent = {
-                        Icon(path.icon, contentDescription = null)
+                        PathLeadingIcon(pathId = path.id)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -87,12 +91,24 @@ fun HomeScreen(
     }
 }
 
-private val EntropyPath.icon: ImageVector
-    get() = when (id) {
-        "dice" -> Icons.Outlined.Casino
-        "d8-d16" -> Icons.Outlined.Casino
-        "dice-coin" -> Icons.Outlined.JoinInner
-        "coin" -> Icons.Outlined.Toll
-        "cards" -> Icons.Outlined.Style
-        else -> Icons.Outlined.Info
+@Composable
+private fun PathLeadingIcon(pathId: String) {
+    if (pathId == "d8-d16") {
+        Icon(
+            painter = painterResource(R.drawable.ic_d8_dice),
+            contentDescription = null,
+            modifier = Modifier.size(24.dp),
+            tint = Color.Unspecified,
+        )
+    } else {
+        Icon(pathIcon(pathId), contentDescription = null)
     }
+}
+
+private fun pathIcon(pathId: String): ImageVector = when (pathId) {
+    "dice" -> Icons.Outlined.Casino
+    "dice-coin" -> Icons.Outlined.JoinInner
+    "coin" -> Icons.Outlined.Toll
+    "cards" -> Icons.Outlined.Style
+    else -> Icons.Outlined.Info
+}
