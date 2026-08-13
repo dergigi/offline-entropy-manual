@@ -60,6 +60,9 @@ fun PathScreen(
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                     )
+                    if (path.showChecksumNote) {
+                        Bip39ChecksumNote(modifier = Modifier.padding(top = 16.dp))
+                    }
                 }
             }
             items(path.documents, key = { it.id }) { document ->

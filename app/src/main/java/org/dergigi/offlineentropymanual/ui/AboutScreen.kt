@@ -55,6 +55,7 @@ fun AboutScreen(onBack: () -> Unit) {
                 modifier = Modifier.padding(top = 12.dp),
             )
             SeedSafetyWarning(modifier = Modifier.padding(top = 24.dp))
+            Bip39ChecksumNote(modifier = Modifier.padding(top = 24.dp))
             Text(
                 text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,

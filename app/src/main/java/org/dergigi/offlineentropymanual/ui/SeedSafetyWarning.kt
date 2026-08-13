@@ -13,6 +13,10 @@ const val SeedSafetyWarningText =
         "website or an app. Either can easily save the seed and use it to steal all " +
         "your bitcoins."
 
+const val Bip39ChecksumNoteText =
+    "The last word of a BIP39 seed (the 12th or 24th) is a checksum. It has to be " +
+        "calculated by a hardware wallet or some other airgapped device."
+
 @Composable
 fun SeedSafetyWarning(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
@@ -23,6 +27,21 @@ fun SeedSafetyWarning(modifier: Modifier = Modifier) {
         )
         Text(
             text = SeedSafetyWarningText,
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.padding(top = 8.dp),
+        )
+    }
+}
+
+@Composable
+fun Bip39ChecksumNote(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(
+            text = "Checksum",
+            style = MaterialTheme.typography.titleMedium,
+        )
+        Text(
+            text = Bip39ChecksumNoteText,
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.padding(top = 8.dp),
         )

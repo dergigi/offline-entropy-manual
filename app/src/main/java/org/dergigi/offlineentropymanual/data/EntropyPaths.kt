@@ -5,6 +5,7 @@ data class EntropyPath(
     val title: String,
     val subtitle: String,
     val documentIds: List<String>,
+    val showChecksumNote: Boolean = false,
 ) {
     val documents: List<ManualDocument>
         get() = documentIds.map(ManualDocuments::byId)
@@ -46,12 +47,14 @@ object EntropyPaths {
             title = "Printer and scissors",
             subtitle = "Cut-out BIP39 word list",
             documentIds = listOf("bip39-cutout", "seedsigner-generate"),
+            showChecksumNote = true,
         ),
         EntropyPath(
             id = "seedsigner",
             title = "SeedSigner",
             subtitle = "Camera, dice, or calculate checksum word",
             documentIds = listOf("seedsigner-generate", "bip39-cutout"),
+            showChecksumNote = true,
         ),
         EntropyPath(
             id = "d8-d16",
@@ -62,6 +65,7 @@ object EntropyPaths {
                 "entropy-worksheet",
                 "entropy-dictionary",
             ),
+            showChecksumNote = true,
         ),
     )
 
