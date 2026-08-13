@@ -41,6 +41,16 @@ fun DocumentOverflowMenu(
             onDismissRequest = { expanded = false },
         ) {
             DropdownMenuItem(
+                text = { Text("Open in another app") },
+                leadingIcon = {
+                    Icon(Icons.AutoMirrored.Outlined.MenuBook, contentDescription = null)
+                },
+                onClick = {
+                    expanded = false
+                    openPdfExternally(context, assetFileName)
+                },
+            )
+            DropdownMenuItem(
                 text = { Text("Open source website") },
                 leadingIcon = {
                     Icon(Icons.Outlined.Language, contentDescription = null)
@@ -58,16 +68,6 @@ fun DocumentOverflowMenu(
                 onClick = {
                     expanded = false
                     openUrl(context, attribution.documentUrl)
-                },
-            )
-            DropdownMenuItem(
-                text = { Text("Open in another app") },
-                leadingIcon = {
-                    Icon(Icons.AutoMirrored.Outlined.MenuBook, contentDescription = null)
-                },
-                onClick = {
-                    expanded = false
-                    openPdfExternally(context, assetFileName)
                 },
             )
             DropdownMenuItem(
