@@ -15,24 +15,24 @@ object EntropyPaths {
     // Adapted from BitBox Diceware, The Bitcoin Hole coin-flip guide, and Seed Picker Solitaire.
     private val privacyChecks = listOf(
         "Work alone in a private room.",
-        "Turn off phones and other electronics, or leave them elsewhere.",
-        "Cover cameras and unplug smart speakers or microphones.",
-        "Do not say numbers or recovery words out loud.",
+        "No phones or electronics in the room.",
+        "Cover cameras and unplug mics.",
+        "Do not say numbers or words out loud.",
     )
 
     private val diceChecks = listOf(
         "Use proper dice.",
-        "Roll them properly for good randomness.",
+        "Roll them properly.",
     )
 
     private val coinChecks = listOf(
-        "Flip from your thumb and let the coin land on the table.",
-        "Vary the height and force of each flip.",
+        "Flip from your thumb onto the table.",
+        "Vary the height and force.",
     )
 
     private val cardChecks = listOf(
-        "Use an ordinary deck of playing cards.",
-        "Shuffle the deck thoroughly before you start.",
+        "Use an ordinary deck.",
+        "Shuffle thoroughly before you start.",
     )
 
     val all = listOf(
