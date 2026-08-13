@@ -56,6 +56,7 @@ fun AboutScreen(onBack: () -> Unit) {
             )
             SeedSafetyWarning(modifier = Modifier.padding(top = 24.dp))
             Bip39ChecksumNote(modifier = Modifier.padding(top = 24.dp))
+            AirgappedBip39ToolGate(modifier = Modifier.padding(top = 24.dp))
             Text(
                 text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,

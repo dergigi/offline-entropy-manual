@@ -96,6 +96,11 @@ fun HomeScreen(
             }
             item {
                 Bip39ChecksumNote(
+                    modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
+                )
+            }
+            item {
+                AirgappedBip39ToolGate(
                     modifier = Modifier.padding(top = 8.dp, bottom = 16.dp),
                 )
             }
