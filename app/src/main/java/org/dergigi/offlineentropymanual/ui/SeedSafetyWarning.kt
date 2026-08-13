@@ -29,7 +29,6 @@ val SeedSafetyWarningBullets = listOf(
     "Write it down on paper.",
     "Better yet, stamp it into steel.",
     "Keep more than one backup.",
-    "Consider passphrases and multisig only after you understand the tradeoffs.",
     "Do your own research.",
     "Use this at your own risk.",
 )
