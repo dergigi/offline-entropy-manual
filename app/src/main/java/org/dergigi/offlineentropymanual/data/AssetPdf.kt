@@ -11,8 +11,15 @@ import java.io.FileOutputStream
 
 fun copyAssetToCache(context: Context, assetFileName: String): File {
     val outFile = File(context.cacheDir, assetFileName)
-    val assetBytes = context.assets.openFd(assetFileName).use { it.length }
-    if (!outFile.exists() || outFile.length() != assetBytes) {
+    val assetLength = runCatching {
+        context.assets.openFd(assetFileName).use { it.length }
+    }.getOrNull()
+    val needsCopy = when {
+        !outFile.exists() || outFile.length() <= 0L -> true
+        assetLength != null -> outFile.length() != assetLength
+        else -> true
+    }
+    if (needsCopy) {
         context.assets.open(assetFileName).use { input ->
             FileOutputStream(outFile).use { output ->
                 input.copyTo(output)
