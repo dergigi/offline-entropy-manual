@@ -28,5 +28,4 @@ Bundled PDF guides under app/src/main/assets/ are not covered by this license.
 They remain under their authors' terms. Known example: BitBox Diceware materials
 are Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
 The printable BIP39 cut-out list is generated from bitcoin/bips bip-0039/english.txt
-(MIT). The SeedSigner Generate-Seed guide is from econoalchemist (Unlicense).
-See README.md and the app's About screen for attribution and source links.
+(MIT). See README.md and the app's About screen for attribution and source links.
