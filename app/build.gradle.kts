@@ -15,6 +15,13 @@ fun gitShortHash(): String = try {
     "unknown"
 }
 
+fun localProp(name: String): String? {
+    val file = rootProject.file("local.properties")
+    if (!file.exists()) return System.getenv(name)
+    val props = java.util.Properties().apply { file.inputStream().use { load(it) } }
+    return props.getProperty(name) ?: System.getenv(name)
+}
+
 android {
     namespace = "org.dergigi.offlineentropymanual"
     compileSdk = 35
@@ -29,6 +36,28 @@ android {
         buildConfigField("String", "GIT_HASH", "\"${gitShortHash()}\"")
     }
 
+    val storeFilePath = localProp("OEM_STORE_FILE")
+    val storePassword = localProp("OEM_STORE_PASSWORD")
+    val keyAlias = localProp("OEM_KEY_ALIAS")
+    val keyPassword = localProp("OEM_KEY_PASSWORD")
+    val hasReleaseSigning =
+        !storeFilePath.isNullOrBlank() &&
+            !storePassword.isNullOrBlank() &&
+            !keyAlias.isNullOrBlank() &&
+            !keyPassword.isNullOrBlank() &&
+            file(storeFilePath).exists()
+
+    if (hasReleaseSigning) {
+        signingConfigs {
+            create("release") {
+                storeFile = file(storeFilePath!!)
+                this.storePassword = storePassword
+                this.keyAlias = keyAlias
+                this.keyPassword = keyPassword
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -36,6 +65,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
     }
 

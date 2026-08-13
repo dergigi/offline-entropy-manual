@@ -23,6 +23,11 @@ build/
 # Local configuration file (sdk path, etc)
 local.properties
 
+# Release signing
+keystore/
+*.jks
+*.keystore
+
 # Android Studio
 .idea/
 *.iml
