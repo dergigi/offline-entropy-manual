@@ -68,6 +68,12 @@ fun Backup321Screen(
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 20.dp),
             )
+            Text(
+                text = "Advanced users should also consider a BIP39 passphrase and multisig " +
+                    "setups. Do your own research.",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 16.dp),
+            )
             AppVersionFooter(modifier = Modifier.padding(top = 32.dp, bottom = 8.dp))
         }
     }
