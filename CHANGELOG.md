@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- README banner image.
+
 ### Fixed
 
 - Point Zapstore at `CHANGELOG.md` via `release_notes` so releases show notes instead of "No notes".
