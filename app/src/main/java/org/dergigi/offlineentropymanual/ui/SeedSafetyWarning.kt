@@ -26,7 +26,7 @@ val SeedSafetyWarningBullets = listOf(
     "Do not photograph your seed phrase, type it into anything connected to the internet, or read it aloud.",
     "Write it down on paper, or better, stamp it into steel. Keep more than one backup.",
     "Passphrases and multisig can strengthen your setup, but only after you understand the tradeoffs.",
-    "Do your own research. Use this at your own risk. Don't trust; verify.",
+    "Do your own research. Use this at your own risk.",
 )
 
 @Composable
