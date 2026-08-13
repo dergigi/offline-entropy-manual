@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -17,10 +18,12 @@ import org.dergigi.offlineentropymanual.ui.AirgappedBip39ToolScreen
 import org.dergigi.offlineentropymanual.ui.HomeScreen
 import org.dergigi.offlineentropymanual.ui.PathScreen
 import org.dergigi.offlineentropymanual.ui.PdfViewerScreen
+import org.dergigi.offlineentropymanual.ui.SplashScreen
 import org.dergigi.offlineentropymanual.ui.theme.OfflineEntropyManualTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -40,7 +43,16 @@ fun OfflineEntropyManualApp() {
         }
     }
 
-    NavHost(navController = navController, startDestination = "home") {
+    NavHost(navController = navController, startDestination = "splash") {
+        composable("splash") {
+            SplashScreen(
+                onFinished = {
+                    navController.navigate("home") {
+                        popUpTo("splash") { inclusive = true }
+                    }
+                },
+            )
+        }
         composable("home") {
             HomeScreen(
                 onOpenPath = { path ->
