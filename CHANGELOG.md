@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-08-14
+
 ### Added
 
-- Before you begin checks on the printer and scissors path.
+- Before you begin checks on the printer and scissors path (bowl, mix, replace slips, remix after each draw).
 
 ### Fixed
 
@@ -67,7 +69,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App footer with semantic version (links to GitHub releases) and git hash (links to the commit).
 - Zapstore publishing metadata and release signing support.
 
-[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.0.0...v1.1.0
