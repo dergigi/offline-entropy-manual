@@ -90,6 +90,7 @@ object EntropyPaths {
                 "Use a proper bowl or container.",
                 "Mix the slips thoroughly.",
                 "Put each slip back after you draw it.",
+                "Mix again after every draw.",
             ),
         ),
     )
