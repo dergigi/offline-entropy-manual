@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Built-in PDF viewer page fill so documents stay readable in dark mode.
+- Built-in PDF viewer scrolling (pinch-zoom was eating scroll gestures).
 
 ## [1.2.0] - 2026-08-13
 
