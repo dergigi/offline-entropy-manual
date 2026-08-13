@@ -24,6 +24,15 @@ Bundled under `app/src/main/assets/`. Original authors retain rights to their PD
 - [Coin Flip Passphrase Sheet](https://thebitcoinhole.com/blog/files/coin-flip-passphrase-sheet.pdf)
 - [BIP39 Wordlist](https://thebitcoinhole.com/blog/files/bip39-wordlist.pdf)
 
+### The Simplest Bitcoin Book
+
+- [Roll Your Own Seed Workshop](https://thesimplestbitcoinbook.net/wp-content/uploads/2025/03/FINAL_Roll-Your-Own-Seed-Workshop_8.5x11_03_25_2025.pdf)
+
+### entropy.page
+
+- [Seed Worksheet](https://entropy.page/files/worksheet.pdf)
+- [BIP39 Dictionary](https://entropy.page/files/dictionary.pdf)
+
 ## Build
 
 Requires JDK 17+ and the Android SDK (platform 35).

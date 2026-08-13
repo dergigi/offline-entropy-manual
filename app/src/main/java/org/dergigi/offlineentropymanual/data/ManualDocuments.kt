@@ -26,6 +26,14 @@ object ManualDocuments {
         author = "The Bitcoin Hole",
         sourceUrl = "https://thebitcoinhole.com/",
     )
+    private val simplestBitcoinBook = Attribution(
+        author = "The Simplest Bitcoin Book",
+        sourceUrl = "https://thesimplestbitcoinbook.net/",
+    )
+    private val entropyPage = Attribution(
+        author = "entropy.page",
+        sourceUrl = "https://entropy.page/",
+    )
 
     val all = listOf(
         ManualDocument(
@@ -89,6 +97,33 @@ object ManualDocuments {
             assetFileName = "bip39-wordlist.pdf",
             attribution = bitcoinHole.copy(
                 sourceUrl = "https://thebitcoinhole.com/blog/files/bip39-wordlist.pdf",
+            ),
+        ),
+        ManualDocument(
+            id = "roll-workshop",
+            title = "Roll Your Own Seed Workshop",
+            subtitle = "Guide for D8 and D16 dice",
+            assetFileName = "roll-your-own-seed-workshop.pdf",
+            attribution = simplestBitcoinBook.copy(
+                sourceUrl = "https://thesimplestbitcoinbook.net/wp-content/uploads/2025/03/FINAL_Roll-Your-Own-Seed-Workshop_8.5x11_03_25_2025.pdf",
+            ),
+        ),
+        ManualDocument(
+            id = "entropy-worksheet",
+            title = "Seed Worksheet",
+            subtitle = "Worksheet for the D8/D16 workshop",
+            assetFileName = "entropy-page-worksheet.pdf",
+            attribution = entropyPage.copy(
+                sourceUrl = "https://entropy.page/files/worksheet.pdf",
+            ),
+        ),
+        ManualDocument(
+            id = "entropy-dictionary",
+            title = "BIP39 Dictionary",
+            subtitle = "Word list for the D8/D16 workshop",
+            assetFileName = "entropy-page-dictionary.pdf",
+            attribution = entropyPage.copy(
+                sourceUrl = "https://entropy.page/files/dictionary.pdf",
             ),
         ),
     )

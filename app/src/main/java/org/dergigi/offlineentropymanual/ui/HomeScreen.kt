@@ -90,6 +90,7 @@ fun HomeScreen(
 private val EntropyPath.icon: ImageVector
     get() = when (id) {
         "dice" -> Icons.Outlined.Casino
+        "d8-d16" -> Icons.Outlined.Casino
         "dice-coin" -> Icons.Outlined.JoinInner
         "coin" -> Icons.Outlined.Toll
         "cards" -> Icons.Outlined.Style
