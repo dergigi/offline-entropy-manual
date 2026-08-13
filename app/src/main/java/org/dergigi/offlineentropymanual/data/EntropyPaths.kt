@@ -49,8 +49,8 @@ object EntropyPaths {
         ),
         EntropyPath(
             id = "seedsigner",
-            title = "SeedSigner",
-            subtitle = "Camera, dice, or calculate checksum word",
+            title = "Raspberry Pi Zero",
+            subtitle = "SeedSigner: camera, dice, or checksum word",
             documentIds = listOf("seedsigner-generate", "bip39-cutout"),
         ),
         EntropyPath(
