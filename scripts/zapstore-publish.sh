@@ -68,16 +68,20 @@ PUBLISH_CFG="$(mktemp -t oem-zapstore.XXXXXX.yaml)"
 cleanup() { rm -f "$PUBLISH_CFG"; }
 trap cleanup EXIT
 
+NOTES="$ROOT/CHANGELOG.md"
+ICON="$ROOT/zapstore-icon.png"
 {
-  # Drop any existing release_source so we can set a local one.
-  grep -v '^release_source:' zapstore.yaml || true
+  # Drop path fields so we can rewrite them as absolute paths. Relative paths
+  # are resolved from the temp config directory and break.
+  grep -vE '^(release_source|release_notes|icon):' zapstore.yaml || true
+  echo "release_notes: $NOTES"
   echo "release_source: $APK"
+  echo "icon: $ICON"
 } > "$PUBLISH_CFG"
 
 echo "Publishing to Zapstore (notes from CHANGELOG.md via zapstore.yaml)…"
 echo "  APK: $APK"
-echo "  notes: $(grep '^release_notes:' "$PUBLISH_CFG" | sed 's/^release_notes:[[:space:]]*//')"
-
+echo "  notes: $NOTES"
 zsp publish "$PUBLISH_CFG" \
   --skip-preview \
   --skip-certificate-linking \
