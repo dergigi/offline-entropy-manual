@@ -45,8 +45,8 @@ object EntropyPaths {
         EntropyPath(
             id = "dice-coin",
             title = "Dice and coin",
-            subtitle = "Diceware seed, coin-flip passphrase",
-            documentIds = listOf("howto", "lookup", "coinflip-passphrase"),
+            subtitle = "BitBox Diceware with five dice and a coin",
+            documentIds = listOf("howto", "lookup"),
             beforeYouBegin = diceChecks + coinChecks + privacyChecks,
         ),
         EntropyPath(
