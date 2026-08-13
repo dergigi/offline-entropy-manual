@@ -48,12 +48,6 @@ object EntropyPaths {
             documentIds = listOf("bip39-cutout", "seedsigner-generate"),
         ),
         EntropyPath(
-            id = "seedsigner",
-            title = "Raspberry Pi Zero",
-            subtitle = "SeedSigner: camera, dice, or checksum word",
-            documentIds = listOf("seedsigner-generate", "bip39-cutout"),
-        ),
-        EntropyPath(
             id = "d8-d16",
             title = "8-sided and 16-sided dice",
             subtitle = "Roll Your Own Seed workshop",
