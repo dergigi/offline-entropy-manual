@@ -45,9 +45,9 @@ object ManualDocuments {
         documentUrl = documentUrl,
     )
 
-    private fun bip39Phrase(documentUrl: String) = Attribution(
-        author = "bip39-phrase.com",
-        websiteUrl = "https://bip39-phrase.com/",
+    private fun bip39Bips(documentUrl: String) = Attribution(
+        author = "BIP39 (bitcoin/bips)",
+        websiteUrl = "https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt",
         documentUrl = documentUrl,
     )
 
@@ -135,11 +135,13 @@ object ManualDocuments {
             attribution = entropyPage("https://entropy.page/files/dictionary.pdf"),
         ),
         ManualDocument(
-            id = "bip39-phrase-list",
-            title = "BIP39 English Word List",
-            subtitle = "Printable numbered list for cutting out words",
-            assetFileName = "bip39-phrase-english-word-list.pdf",
-            attribution = bip39Phrase("https://bip39-phrase.com/english-word-list.pdf"),
+            id = "bip39-cutout",
+            title = "BIP39 English Cut-Out List",
+            subtitle = "Print, cut along the dashed lines, draw from a bowl",
+            assetFileName = "bip39-english-cutout.pdf",
+            attribution = bip39Bips(
+                "https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt",
+            ),
         ),
     )
 

@@ -45,7 +45,7 @@ object EntropyPaths {
             id = "printer-scissors",
             title = "Printer and scissors",
             subtitle = "Cut-out BIP39 word list",
-            documentIds = listOf("bip39-phrase-list"),
+            documentIds = listOf("bip39-cutout"),
         ),
         EntropyPath(
             id = "d8-d16",
