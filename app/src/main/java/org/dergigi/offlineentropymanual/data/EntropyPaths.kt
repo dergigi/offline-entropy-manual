@@ -21,7 +21,7 @@ object EntropyPaths {
     )
 
     private val diceChecks = listOf(
-        "Prefer casino-grade dice.",
+        "Use proper dice.",
         "Roll them properly for good randomness.",
     )
 
