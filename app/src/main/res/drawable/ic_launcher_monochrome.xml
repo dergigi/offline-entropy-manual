@@ -5,25 +5,23 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
-    <!-- Die body (safe zone center) -->
+    <!-- Themed / monochrome: die outline + pips -->
     <path
-        android:fillColor="#E8E4D9"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M34,34h40c2.2,0 4,1.8 4,4v40c0,2.2 -1.8,4 -4,4h-40c-2.2,0 -4,-1.8 -4,-4v-40c0,-2.2 1.8,-4 4,-4z" />
-
-    <!-- Pips: five (quincunx) -->
     <path
-        android:fillColor="#1A1A1A"
+        android:fillColor="#FF000000"
         android:pathData="M42,42m-4.2,0a4.2,4.2 0,1 1,8.4 0a4.2,4.2 0,1 1,-8.4 0" />
     <path
-        android:fillColor="#1A1A1A"
+        android:fillColor="#FF000000"
         android:pathData="M66,42m-4.2,0a4.2,4.2 0,1 1,8.4 0a4.2,4.2 0,1 1,-8.4 0" />
     <path
-        android:fillColor="#1A1A1A"
+        android:fillColor="#FF000000"
         android:pathData="M54,54m-4.2,0a4.2,4.2 0,1 1,8.4 0a4.2,4.2 0,1 1,-8.4 0" />
     <path
-        android:fillColor="#1A1A1A"
+        android:fillColor="#FF000000"
         android:pathData="M42,66m-4.2,0a4.2,4.2 0,1 1,8.4 0a4.2,4.2 0,1 1,-8.4 0" />
     <path
-        android:fillColor="#1A1A1A"
+        android:fillColor="#FF000000"
         android:pathData="M66,66m-4.2,0a4.2,4.2 0,1 1,8.4 0a4.2,4.2 0,1 1,-8.4 0" />
 </vector>
