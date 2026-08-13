@@ -24,7 +24,6 @@ const val SeedSafetyWarningLead =
 
 val SeedSafetyWarningBullets = listOf(
     "Do not photograph your seed phrase.",
-    "Do not type it into anything connected to the internet.",
     "Do not read it aloud.",
     "Write it down on paper.",
     "Better yet, stamp it into steel.",
