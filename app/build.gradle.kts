@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -18,7 +20,8 @@ fun gitShortHash(): String = try {
 fun localProp(name: String): String? {
     val file = rootProject.file("local.properties")
     if (!file.exists()) return System.getenv(name)
-    val props = java.util.Properties().apply { file.inputStream().use { load(it) } }
+    val props = Properties()
+    file.inputStream().use { props.load(it) }
     return props.getProperty(name) ?: System.getenv(name)
 }
 
