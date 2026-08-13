@@ -65,11 +65,27 @@ fun PathScreen(
             }
             item {
                 Column(modifier = Modifier.padding(bottom = 20.dp)) {
+                    if (path.beforeYouBegin.isNotEmpty()) {
+                        Text(
+                            text = "Before you begin",
+                            style = MaterialTheme.typography.titleMedium,
+                        )
+                        path.beforeYouBegin.forEach { point ->
+                            Text(
+                                text = "• $point",
+                                style = MaterialTheme.typography.bodyMedium,
+                                modifier = Modifier.padding(top = 6.dp, start = 4.dp),
+                            )
+                        }
+                    }
                     Text(
-                        text = "Before you begin",
+                        text = "Take proper precautions",
                         style = MaterialTheme.typography.titleMedium,
+                        modifier = Modifier.padding(
+                            top = if (path.beforeYouBegin.isNotEmpty()) 16.dp else 0.dp,
+                        ),
                     )
-                    path.beforeYouBegin.forEach { point ->
+                    path.precautions.forEach { point ->
                         Text(
                             text = "• $point",
                             style = MaterialTheme.typography.bodyMedium,
