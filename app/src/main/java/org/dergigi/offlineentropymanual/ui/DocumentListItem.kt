@@ -16,11 +16,18 @@ import org.dergigi.offlineentropymanual.data.ManualDocument
 fun DocumentListItem(
     document: ManualDocument,
     onClick: () -> Unit,
+    showAuthor: Boolean = true,
 ) {
     ListItem(
         headlineContent = { Text(document.title) },
         supportingContent = {
-            Text("${document.subtitle}\n${document.attribution.author}")
+            Text(
+                if (showAuthor) {
+                    "${document.subtitle}\n${document.attribution.author}"
+                } else {
+                    document.subtitle
+                },
+            )
         },
         leadingContent = {
             Icon(Icons.AutoMirrored.Outlined.MenuBook, contentDescription = null)

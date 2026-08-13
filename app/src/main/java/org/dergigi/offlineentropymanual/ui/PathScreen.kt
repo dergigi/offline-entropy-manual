@@ -89,6 +89,7 @@ fun PathScreen(
                 DocumentListItem(
                     document = document,
                     onClick = { onOpenDocument(document) },
+                    showAuthor = path.id != "printer-scissors",
                 )
             }
             item {

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Zapstore publish uses `zapstore.yaml` so Keep a Changelog release notes are included (bare APK publish showed "No notes").
+- Hide the BIP39 (bitcoin/bips) author line on the printer and scissors path.
 
 ## [1.2.1] - 2026-08-13
 
