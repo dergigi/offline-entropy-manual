@@ -26,8 +26,7 @@ object EntropyPaths {
     )
 
     private val coinChecks = listOf(
-        "Flip from your thumb onto the table.",
-        "Vary the height and force.",
+        "Make sure you know how to flip a coin.",
     )
 
     private val cardChecks = listOf(
