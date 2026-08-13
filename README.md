@@ -52,4 +52,12 @@ First publish links the APK signing certificate to your Nostr identity (NIP-C1) 
 
 **App code** is [MIT](LICENSE).
 
-**Bundled guides** are not. They keep whatever license (or all-rights-reserved terms) their authors set. For example, the BitBox Diceware How-To and Lookup Table are [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Check each source linked from the About screen before redistributing the PDFs on their own.
+**Bundled guides** are not covered by the app MIT license. Known terms:
+
+- BitBox Diceware materials: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+- Seed Picker Solitaire: [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- BIP39 English word list (`bitcoin/bips`): [MIT](https://opensource.org/licenses/MIT)
+- The Simplest Bitcoin Book workshop: [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/) (site: non-commercial Creative Commons)
+- The Bitcoin Hole and entropy.page materials: author's terms (no public license found)
+
+Check each source linked from the About screen before redistributing the PDFs on their own.

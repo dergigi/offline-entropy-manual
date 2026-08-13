@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.MenuBook
 import androidx.compose.material.icons.automirrored.outlined.OpenInNew
+import androidx.compose.material.icons.outlined.Balance
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material.icons.outlined.Share
@@ -31,6 +32,7 @@ fun DocumentOverflowMenu(
 ) {
     var expanded by remember { mutableStateOf(false) }
     val context = LocalContext.current
+    val licenseUrl = attribution.license.url
 
     Box {
         IconButton(onClick = { expanded = true }) {
@@ -70,6 +72,18 @@ fun DocumentOverflowMenu(
                     openUrl(context, attribution.documentUrl)
                 },
             )
+            if (licenseUrl != null) {
+                DropdownMenuItem(
+                    text = { Text("Open license (${attribution.license.label})") },
+                    leadingIcon = {
+                        Icon(Icons.Outlined.Balance, contentDescription = null)
+                    },
+                    onClick = {
+                        expanded = false
+                        openUrl(context, licenseUrl)
+                    },
+                )
+            }
             DropdownMenuItem(
                 text = { Text("Share") },
                 leadingIcon = {

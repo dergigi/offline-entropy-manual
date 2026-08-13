@@ -88,6 +88,7 @@ fun AboutScreen(
                     url = attribution.websiteUrl,
                     label = "Open website",
                 )
+                LicenseLink(license = attribution.license)
                 documents.forEach { document ->
                     Text(
                         text = document.title,

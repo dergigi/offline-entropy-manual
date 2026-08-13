@@ -122,6 +122,7 @@ fun PathScreen(
                             url = attribution.websiteUrl,
                             label = "Open website",
                         )
+                        LicenseLink(license = attribution.license)
                         documents.forEach { document ->
                             LinkText(
                                 url = document.attribution.documentUrl,

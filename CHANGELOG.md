@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Screen explaining the 3-2-1 backup rule, linked from the warning list.
+- Per-source license label (and link when known) next to website / source PDF.
 
 ### Changed
 

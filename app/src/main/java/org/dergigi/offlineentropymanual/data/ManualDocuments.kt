@@ -1,9 +1,15 @@
 package org.dergigi.offlineentropymanual.data
 
+data class ContentLicense(
+    val label: String,
+    val url: String? = null,
+)
+
 data class Attribution(
     val author: String,
     val websiteUrl: String,
     val documentUrl: String,
+    val license: ContentLicense,
 )
 
 data class ManualDocument(
@@ -14,41 +20,68 @@ data class ManualDocument(
     val attribution: Attribution,
 )
 
+object Licenses {
+    val CcBySa40 = ContentLicense(
+        label = "CC BY-SA 4.0",
+        url = "https://creativecommons.org/licenses/by-sa/4.0/",
+    )
+    val CcByNc = ContentLicense(
+        label = "CC BY-NC",
+        url = "https://creativecommons.org/licenses/by-nc/4.0/",
+    )
+    val Apache20 = ContentLicense(
+        label = "Apache-2.0",
+        url = "https://www.apache.org/licenses/LICENSE-2.0",
+    )
+    val Mit = ContentLicense(
+        label = "MIT",
+        url = "https://opensource.org/licenses/MIT",
+    )
+    val AuthorsTerms = ContentLicense(label = "Author's terms")
+}
+
 object ManualDocuments {
     private fun bitbox(documentUrl: String) = Attribution(
         author = "BitBox Swiss AG",
         websiteUrl = "https://bitbox.swiss/",
         documentUrl = documentUrl,
+        license = Licenses.CcBySa40,
     )
 
     private fun jimbojw(documentUrl: String) = Attribution(
         author = "Jimbojw",
         websiteUrl = "https://jimbojw.github.io/seed-picker-solitaire/",
         documentUrl = documentUrl,
+        license = Licenses.Apache20,
     )
 
     private fun bitcoinHole(documentUrl: String) = Attribution(
         author = "The Bitcoin Hole",
         websiteUrl = "https://thebitcoinhole.com/",
         documentUrl = documentUrl,
+        license = Licenses.AuthorsTerms,
     )
 
     private fun simplestBitcoinBook(documentUrl: String) = Attribution(
         author = "The Simplest Bitcoin Book",
         websiteUrl = "https://thesimplestbitcoinbook.net/",
         documentUrl = documentUrl,
+        // Site: non-commercial Creative Commons for the book materials.
+        license = Licenses.CcByNc,
     )
 
     private fun entropyPage(documentUrl: String) = Attribution(
         author = "entropy.page",
         websiteUrl = "https://entropy.page/",
         documentUrl = documentUrl,
+        license = Licenses.AuthorsTerms,
     )
 
     private fun bip39Bips(documentUrl: String) = Attribution(
         author = "BIP39 (bitcoin/bips)",
         websiteUrl = "https://github.com/bitcoin/bips/blob/master/bip-0039/english.txt",
         documentUrl = documentUrl,
+        license = Licenses.Mit,
     )
 
     val all = listOf(
