@@ -29,21 +29,40 @@ fun copyAssetToCache(context: Context, assetFileName: String): File {
     return outFile
 }
 
-fun openPdfExternally(context: Context, assetFileName: String) {
+private fun pdfCacheUri(context: Context, assetFileName: String): Uri {
     val file = copyAssetToCache(context, assetFileName)
-    val uri = FileProvider.getUriForFile(
+    return FileProvider.getUriForFile(
         context,
         "${context.packageName}.fileprovider",
         file,
     )
+}
+
+fun openPdfExternally(context: Context, assetFileName: String) {
     val viewIntent = Intent(Intent.ACTION_VIEW).apply {
-        setDataAndType(uri, "application/pdf")
+        setDataAndType(pdfCacheUri(context, assetFileName), "application/pdf")
         addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
     }
     try {
         context.startActivity(Intent.createChooser(viewIntent, "Open with"))
     } catch (_: ActivityNotFoundException) {
         Toast.makeText(context, "No PDF viewer installed", Toast.LENGTH_SHORT).show()
+    }
+}
+
+fun sharePdf(context: Context, assetFileName: String, title: String? = null) {
+    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+        type = "application/pdf"
+        putExtra(Intent.EXTRA_STREAM, pdfCacheUri(context, assetFileName))
+        addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        if (!title.isNullOrBlank()) {
+            putExtra(Intent.EXTRA_SUBJECT, title)
+        }
+    }
+    try {
+        context.startActivity(Intent.createChooser(shareIntent, "Share"))
+    } catch (_: ActivityNotFoundException) {
+        Toast.makeText(context, "Nothing to share with", Toast.LENGTH_SHORT).show()
     }
 }
 

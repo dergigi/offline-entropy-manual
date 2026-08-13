@@ -15,13 +15,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.automirrored.outlined.MenuBook
-import androidx.compose.material.icons.automirrored.outlined.OpenInNew
-import androidx.compose.material.icons.outlined.Language
-import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -50,8 +44,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.dergigi.offlineentropymanual.data.Attribution
 import org.dergigi.offlineentropymanual.data.copyAssetToCache
-import org.dergigi.offlineentropymanual.data.openPdfExternally
-import org.dergigi.offlineentropymanual.data.openUrl
 
 private const val RenderWidthPx = 1080
 
@@ -68,7 +60,6 @@ fun PdfViewerScreen(
     var pageBitmaps by remember { mutableStateOf<List<Bitmap>>(emptyList()) }
     var loading by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
-    var menuExpanded by remember { mutableStateOf(false) }
     var scale by remember { mutableFloatStateOf(1f) }
     var offset by remember { mutableStateOf(Offset.Zero) }
 
@@ -149,50 +140,11 @@ fun PdfViewerScreen(
                     }
                 },
                 actions = {
-                    IconButton(onClick = { menuExpanded = true }) {
-                        Icon(Icons.Outlined.MoreVert, contentDescription = "More")
-                    }
-                    DropdownMenu(
-                        expanded = menuExpanded,
-                        onDismissRequest = { menuExpanded = false },
-                    ) {
-                        DropdownMenuItem(
-                            text = { Text("Open source website") },
-                            leadingIcon = {
-                                Icon(Icons.Outlined.Language, contentDescription = null)
-                            },
-                            onClick = {
-                                menuExpanded = false
-                                openUrl(context, attribution.websiteUrl)
-                            },
-                        )
-                        DropdownMenuItem(
-                            text = { Text("Open source PDF online") },
-                            leadingIcon = {
-                                Icon(
-                                    Icons.AutoMirrored.Outlined.OpenInNew,
-                                    contentDescription = null,
-                                )
-                            },
-                            onClick = {
-                                menuExpanded = false
-                                openUrl(context, attribution.documentUrl)
-                            },
-                        )
-                        DropdownMenuItem(
-                            text = { Text("Open in another app") },
-                            leadingIcon = {
-                                Icon(
-                                    Icons.AutoMirrored.Outlined.MenuBook,
-                                    contentDescription = null,
-                                )
-                            },
-                            onClick = {
-                                menuExpanded = false
-                                openPdfExternally(context, assetFileName)
-                            },
-                        )
-                    }
+                    DocumentOverflowMenu(
+                        title = title,
+                        attribution = attribution,
+                        assetFileName = assetFileName,
+                    )
                 },
             )
         },
