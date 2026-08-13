@@ -10,8 +10,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.outlined.Casino
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.JoinInner
+import androidx.compose.material.icons.outlined.Style
+import androidx.compose.material.icons.outlined.Toll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -23,14 +26,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import org.dergigi.offlineentropymanual.data.ManualDocument
-import org.dergigi.offlineentropymanual.data.ManualDocuments
+import org.dergigi.offlineentropymanual.data.EntropyPath
+import org.dergigi.offlineentropymanual.data.EntropyPaths
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    onOpenDocument: (ManualDocument) -> Unit,
+    onOpenPath: (EntropyPath) -> Unit,
     onOpenAbout: () -> Unit,
 ) {
     Scaffold(
@@ -55,25 +59,39 @@ fun HomeScreen(
             item {
                 Column(modifier = Modifier.padding(bottom = 16.dp, top = 8.dp)) {
                     Text(
-                        text = "Entropy backup guides, available offline.",
+                        text = "What do you have at hand?",
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    Text(
+                        text = "Pick your tools. We'll show the matching offline guides.",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
+                        modifier = Modifier.padding(top = 8.dp),
                     )
                 }
             }
-            items(ManualDocuments.all, key = { it.id }) { document ->
+            items(EntropyPaths.all, key = { it.id }) { path ->
                 ListItem(
-                    headlineContent = { Text(document.title) },
-                    supportingContent = { Text(document.subtitle) },
+                    headlineContent = { Text(path.title) },
+                    supportingContent = { Text(path.subtitle) },
                     leadingContent = {
-                        Icon(Icons.AutoMirrored.Outlined.MenuBook, contentDescription = null)
+                        Icon(path.icon, contentDescription = null)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable { onOpenDocument(document) },
+                        .clickable { onOpenPath(path) },
                 )
                 HorizontalDivider()
             }
         }
     }
 }
+
+private val EntropyPath.icon: ImageVector
+    get() = when (id) {
+        "dice" -> Icons.Outlined.Casino
+        "dice-coin" -> Icons.Outlined.JoinInner
+        "coin" -> Icons.Outlined.Toll
+        "cards" -> Icons.Outlined.Style
+        else -> Icons.Outlined.Info
+    }
