@@ -19,16 +19,6 @@ object EntropyPaths {
             documentIds = listOf("howto", "lookup"),
         ),
         EntropyPath(
-            id = "d8-d16",
-            title = "8-sided and 16-sided dice",
-            subtitle = "Roll Your Own Seed workshop",
-            documentIds = listOf(
-                "roll-workshop",
-                "entropy-worksheet",
-                "entropy-dictionary",
-            ),
-        ),
-        EntropyPath(
             id = "dice-coin",
             title = "Dice and coin",
             subtitle = "Diceware seed, coin-flip passphrase",
@@ -50,6 +40,16 @@ object EntropyPaths {
             title = "Playing cards",
             subtitle = "Seed Picker Solitaire",
             documentIds = listOf("solitaire"),
+        ),
+        EntropyPath(
+            id = "d8-d16",
+            title = "8-sided and 16-sided dice",
+            subtitle = "Roll Your Own Seed workshop",
+            documentIds = listOf(
+                "roll-workshop",
+                "entropy-worksheet",
+                "entropy-dictionary",
+            ),
         ),
     )
 
