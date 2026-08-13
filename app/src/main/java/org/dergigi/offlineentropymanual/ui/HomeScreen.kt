@@ -28,7 +28,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -106,7 +105,6 @@ private fun PathLeadingIcon(pathId: String) {
             painter = painterResource(R.drawable.ic_d8_dice),
             contentDescription = null,
             modifier = Modifier.size(24.dp),
-            tint = Color.Unspecified,
         )
     } else {
         Icon(pathIcon(pathId), contentDescription = null)
