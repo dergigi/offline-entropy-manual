@@ -92,6 +92,17 @@ fun PathScreen(
                 )
             }
             item {
+                SeedSafetyWarning(
+                    modifier = Modifier.padding(top = 24.dp),
+                )
+            }
+            item {
+                Bip39ChecksumNote(
+                    onOpenAirgappedDevice = onOpenAirgappedDevice,
+                    modifier = Modifier.padding(top = 24.dp),
+                )
+            }
+            item {
                 Column(modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)) {
                     Text(
                         text = if (sourcesByAuthor.size == 1) "Source" else "Sources",
@@ -129,9 +140,8 @@ fun PathScreen(
                 }
             }
             item {
-                SafetyFooter(
-                    onOpenAirgappedDevice = onOpenAirgappedDevice,
-                    modifier = Modifier.padding(top = 24.dp, bottom = 16.dp),
+                AppVersionFooter(
+                    modifier = Modifier.padding(top = 32.dp, bottom = 16.dp),
                 )
             }
         }

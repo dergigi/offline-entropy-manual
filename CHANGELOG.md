@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - App launcher icon to the notebook artwork (transparent foreground on dark green).
 - Path screens no longer repeat the subtitle above Before you begin.
+- Path screens order footer as Warning, Checksum, then Sources.
 
 ### Fixed
 
