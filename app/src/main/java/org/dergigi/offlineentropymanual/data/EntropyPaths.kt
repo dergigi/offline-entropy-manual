@@ -42,12 +42,6 @@ object EntropyPaths {
             documentIds = listOf("solitaire"),
         ),
         EntropyPath(
-            id = "printer-scissors",
-            title = "Printer and scissors",
-            subtitle = "Cut-out BIP39 word list",
-            documentIds = listOf("bip39-cutout"),
-        ),
-        EntropyPath(
             id = "d8-d16",
             title = "8-sided and 16-sided dice",
             subtitle = "Roll Your Own Seed workshop",
@@ -56,6 +50,12 @@ object EntropyPaths {
                 "entropy-worksheet",
                 "entropy-dictionary",
             ),
+        ),
+        EntropyPath(
+            id = "printer-scissors",
+            title = "Printer and scissors",
+            subtitle = "Cut-out BIP39 word list",
+            documentIds = listOf("bip39-cutout"),
         ),
     )
 
