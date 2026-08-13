@@ -4,6 +4,8 @@
 
 Android app that ships entropy / seed backup guides as offline PDFs. Pick what tools you have (dice, coins, cards, …) and open the matching docs.
 
+The guides help you generate entropy offline. The last BIP39 word (12th or 24th) is a checksum: this app does not calculate it. Use a hardware wallet or another airgapped device you trust for that step. Never enter your seed into a website or a normal phone app.
+
 Inspired by [SurvivalManual](https://github.com/ligi/SurvivalManual).
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Notable changes are listed in [`CHANGELOG.md`](CHANGELOG.md) using [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).

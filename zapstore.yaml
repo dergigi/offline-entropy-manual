@@ -3,13 +3,17 @@ pubkey: npub1dergggklka99wwrs92yz8wdjs952h2ux2ha2ed598ngwu9w7a6fsh9xzpc
 release_notes: ./CHANGELOG.md
 
 name: Offline Entropy Manual
-summary: Offline guides for generating Bitcoin seed backups with dice, coins, and cards
+summary: Offline guides for generating Bitcoin seed entropy with dice, coins, and cards
 description: |
   Offline Entropy Manual ships printable entropy / seed backup guides as PDFs so you
-  can create a BIP39 seed without relying on a website or a phone app for randomness.
+  can create BIP39 entropy without relying on a website or a phone app for randomness.
 
   Pick what you have at hand (dice, coins, playing cards, D8/D16, or a printer and
   scissors), follow the matching guide, and keep your seed offline.
+
+  The last word of a BIP39 seed (12th or 24th) is a checksum. This app does not
+  calculate it. Finish that step on a hardware wallet or another airgapped device
+  you trust. Never enter your seed into a website or a normal phone app.
 
   Bundled documents keep their original authors' terms; app code is MIT.
 tags:

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- README, About, and Zapstore copy note that a hardware wallet or airgapped device is needed for the BIP39 checksum word.
+
 ## [1.2.2] - 2026-08-14
 
 ### Added

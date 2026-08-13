@@ -58,6 +58,13 @@ fun AboutScreen(
                 modifier = Modifier.padding(top = 12.dp),
             )
             Text(
+                text = "The last BIP39 word (12th or 24th) is a checksum. This app does not " +
+                    "calculate it. Finish that step on a hardware wallet or another airgapped " +
+                    "device you trust.",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 12.dp),
+            )
+            Text(
                 text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(top = 24.dp),
