@@ -48,8 +48,8 @@ fun AboutScreen(onBack: () -> Unit) {
                 style = MaterialTheme.typography.headlineSmall,
             )
             Text(
-                text = "A small offline reader for BitBox Diceware materials. " +
-                    "Everything ships inside the app, so you can follow the guides without a network.",
+                text = "A small offline reader for entropy backup guides. " +
+                    "Everything ships inside the app, so you can follow the materials without a network.",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 12.dp),
             )
@@ -59,15 +59,17 @@ fun AboutScreen(onBack: () -> Unit) {
                 modifier = Modifier.padding(top = 24.dp),
             )
             Text(
-                text = "The PDFs are published by BitBox Swiss AG:\n" +
+                text = "BitBox Swiss AG:\n" +
                     "• https://bitbox.swiss/bitbox02/BitBox_Diceware_HowTo.pdf\n" +
-                    "• https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf",
+                    "• https://bitbox.swiss/bitbox02/BitBox_Diceware_LookupTable.pdf\n\n" +
+                    "Jimbojw (Seed Picker Solitaire):\n" +
+                    "• https://jimbojw.github.io/seed-picker-solitaire/seed-picker-solitaire.pdf",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 8.dp),
             )
             Text(
-                text = "App code is separate from the BitBox documents. " +
-                    "BitBox retains rights to their PDFs; this app only redistributes them for offline use with attribution.",
+                text = "App code is separate from the bundled documents. " +
+                    "Original authors retain rights to their PDFs; this app only redistributes them for offline use with attribution.",
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 24.dp),
             )

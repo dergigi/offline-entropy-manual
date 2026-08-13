@@ -21,6 +21,12 @@ object ManualDocuments {
             subtitle = "Word list for dice rolls",
             assetFileName = "BitBox_Diceware_LookupTable.pdf",
         ),
+        ManualDocument(
+            id = "solitaire",
+            title = "Seed Picker Solitaire",
+            subtitle = "Create a backup with playing cards",
+            assetFileName = "seed-picker-solitaire.pdf",
+        ),
     )
 
     fun byId(id: String): ManualDocument =

@@ -55,7 +55,7 @@ fun HomeScreen(
             item {
                 Column(modifier = Modifier.padding(bottom = 16.dp, top = 8.dp)) {
                     Text(
-                        text = "BitBox Diceware guides, available offline.",
+                        text = "Entropy backup guides, available offline.",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                     )
