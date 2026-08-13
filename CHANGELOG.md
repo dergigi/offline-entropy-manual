@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- App launcher icon to the notebook artwork.
+- App launcher icon to the notebook artwork (transparent foreground on dark green).
 
 ### Fixed
 
