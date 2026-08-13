@@ -21,7 +21,10 @@ import org.dergigi.offlineentropymanual.data.ManualDocuments
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AboutScreen(onBack: () -> Unit) {
+fun AboutScreen(
+    onBack: () -> Unit,
+    onOpenAirgappedDevice: () -> Unit,
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -55,8 +58,10 @@ fun AboutScreen(onBack: () -> Unit) {
                 modifier = Modifier.padding(top = 12.dp),
             )
             SeedSafetyWarning(modifier = Modifier.padding(top = 24.dp))
-            Bip39ChecksumNote(modifier = Modifier.padding(top = 24.dp))
-            AirgappedBip39ToolGate(modifier = Modifier.padding(top = 24.dp))
+            Bip39ChecksumNote(
+                onOpenAirgappedDevice = onOpenAirgappedDevice,
+                modifier = Modifier.padding(top = 24.dp),
+            )
             Text(
                 text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,

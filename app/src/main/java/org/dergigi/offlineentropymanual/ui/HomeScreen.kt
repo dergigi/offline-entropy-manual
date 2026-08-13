@@ -42,6 +42,7 @@ import org.dergigi.offlineentropymanual.data.EntropyPaths
 fun HomeScreen(
     onOpenPath: (EntropyPath) -> Unit,
     onOpenAbout: () -> Unit,
+    onOpenAirgappedDevice: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -96,11 +97,7 @@ fun HomeScreen(
             }
             item {
                 Bip39ChecksumNote(
-                    modifier = Modifier.padding(top = 8.dp, bottom = 8.dp),
-                )
-            }
-            item {
-                AirgappedBip39ToolGate(
+                    onOpenAirgappedDevice = onOpenAirgappedDevice,
                     modifier = Modifier.padding(top = 8.dp, bottom = 16.dp),
                 )
             }

@@ -13,6 +13,7 @@ import androidx.navigation.navArgument
 import org.dergigi.offlineentropymanual.data.EntropyPaths
 import org.dergigi.offlineentropymanual.data.ManualDocuments
 import org.dergigi.offlineentropymanual.ui.AboutScreen
+import org.dergigi.offlineentropymanual.ui.AirgappedBip39ToolScreen
 import org.dergigi.offlineentropymanual.ui.HomeScreen
 import org.dergigi.offlineentropymanual.ui.PathScreen
 import org.dergigi.offlineentropymanual.ui.PdfViewerScreen
@@ -41,6 +42,7 @@ fun OfflineEntropyManualApp() {
                     navController.navigate("path/${path.id}")
                 },
                 onOpenAbout = { navController.navigate("about") },
+                onOpenAirgappedDevice = { navController.navigate("airgapped") },
             )
         }
         composable(
@@ -71,7 +73,13 @@ fun OfflineEntropyManualApp() {
             )
         }
         composable("about") {
-            AboutScreen(onBack = { navController.popBackStack() })
+            AboutScreen(
+                onBack = { navController.popBackStack() },
+                onOpenAirgappedDevice = { navController.navigate("airgapped") },
+            )
+        }
+        composable("airgapped") {
+            AirgappedBip39ToolScreen(onBack = { navController.popBackStack() })
         }
     }
 }
