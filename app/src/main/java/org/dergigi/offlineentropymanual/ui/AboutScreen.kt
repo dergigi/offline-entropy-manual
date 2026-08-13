@@ -24,6 +24,7 @@ import org.dergigi.offlineentropymanual.data.ManualDocuments
 fun AboutScreen(
     onBack: () -> Unit,
     onOpenAirgappedDevice: () -> Unit,
+    onOpenBackup321: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -110,6 +111,7 @@ fun AboutScreen(
             )
             SafetyFooter(
                 onOpenAirgappedDevice = onOpenAirgappedDevice,
+                onOpenBackup321 = onOpenBackup321,
                 modifier = Modifier.padding(top = 32.dp, bottom = 8.dp),
             )
         }

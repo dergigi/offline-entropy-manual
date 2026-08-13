@@ -15,6 +15,7 @@ import org.dergigi.offlineentropymanual.data.EntropyPaths
 import org.dergigi.offlineentropymanual.data.ManualDocuments
 import org.dergigi.offlineentropymanual.ui.AboutScreen
 import org.dergigi.offlineentropymanual.ui.AirgappedBip39ToolScreen
+import org.dergigi.offlineentropymanual.ui.Backup321Screen
 import org.dergigi.offlineentropymanual.ui.HomeScreen
 import org.dergigi.offlineentropymanual.ui.PathScreen
 import org.dergigi.offlineentropymanual.ui.PdfViewerScreen
@@ -42,6 +43,11 @@ fun OfflineEntropyManualApp() {
             launchSingleTop = true
         }
     }
+    val openBackup321 = {
+        navController.navigate("backup-321") {
+            launchSingleTop = true
+        }
+    }
 
     NavHost(navController = navController, startDestination = "splash") {
         composable("splash") {
@@ -60,6 +66,7 @@ fun OfflineEntropyManualApp() {
                 },
                 onOpenAbout = { navController.navigate("about") },
                 onOpenAirgappedDevice = openAirgapped,
+                onOpenBackup321 = openBackup321,
             )
         }
         composable(
@@ -74,6 +81,7 @@ fun OfflineEntropyManualApp() {
                     navController.navigate("pdf/${document.id}")
                 },
                 onOpenAirgappedDevice = openAirgapped,
+                onOpenBackup321 = openBackup321,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -88,6 +96,7 @@ fun OfflineEntropyManualApp() {
                 attribution = document.attribution,
                 assetFileName = document.assetFileName,
                 onOpenAirgappedDevice = openAirgapped,
+                onOpenBackup321 = openBackup321,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -95,12 +104,19 @@ fun OfflineEntropyManualApp() {
             AboutScreen(
                 onBack = { navController.popBackStack() },
                 onOpenAirgappedDevice = openAirgapped,
+                onOpenBackup321 = openBackup321,
             )
         }
         composable("airgapped") {
             AirgappedBip39ToolScreen(
                 onBack = { navController.popBackStack() },
                 onOpenAirgappedDevice = openAirgapped,
+                onOpenBackup321 = openBackup321,
+            )
+        }
+        composable("backup-321") {
+            Backup321Screen(
+                onBack = { navController.popBackStack() },
             )
         }
     }

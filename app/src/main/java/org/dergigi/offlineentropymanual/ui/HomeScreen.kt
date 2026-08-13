@@ -41,6 +41,7 @@ fun HomeScreen(
     onOpenPath: (EntropyPath) -> Unit,
     onOpenAbout: () -> Unit,
     onOpenAirgappedDevice: () -> Unit,
+    onOpenBackup321: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -91,6 +92,7 @@ fun HomeScreen(
             item {
                 SafetyFooter(
                     onOpenAirgappedDevice = onOpenAirgappedDevice,
+                    onOpenBackup321 = onOpenBackup321,
                     modifier = Modifier.padding(top = 24.dp, bottom = 16.dp),
                 )
             }

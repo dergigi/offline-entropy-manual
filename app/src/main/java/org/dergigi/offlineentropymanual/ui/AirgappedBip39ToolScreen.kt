@@ -42,6 +42,7 @@ private val Confirmations = listOf(
 fun AirgappedBip39ToolScreen(
     onBack: () -> Unit,
     onOpenAirgappedDevice: () -> Unit = {},
+    onOpenBackup321: () -> Unit = {},
 ) {
     val context = LocalContext.current
     val checked = remember {
@@ -105,6 +106,7 @@ fun AirgappedBip39ToolScreen(
             }
             SafetyFooter(
                 onOpenAirgappedDevice = onOpenAirgappedDevice,
+                onOpenBackup321 = onOpenBackup321,
                 modifier = Modifier.padding(top = 32.dp, bottom = 8.dp),
             )
         }

@@ -50,6 +50,7 @@ fun PdfViewerScreen(
     attribution: Attribution,
     assetFileName: String,
     onOpenAirgappedDevice: () -> Unit,
+    onOpenBackup321: () -> Unit,
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -178,6 +179,7 @@ fun PdfViewerScreen(
                         item {
                             SafetyFooter(
                                 onOpenAirgappedDevice = onOpenAirgappedDevice,
+                                onOpenBackup321 = onOpenBackup321,
                                 modifier = Modifier.padding(
                                     horizontal = 16.dp,
                                     vertical = 24.dp,

@@ -28,6 +28,7 @@ fun PathScreen(
     path: EntropyPath,
     onOpenDocument: (ManualDocument) -> Unit,
     onOpenAirgappedDevice: () -> Unit,
+    onOpenBackup321: () -> Unit,
     onBack: () -> Unit,
 ) {
     val sourcesByAuthor = path.documents.groupBy { it.attribution.author }
@@ -94,6 +95,7 @@ fun PathScreen(
             }
             item {
                 SeedSafetyWarning(
+                    onOpenBackup321 = onOpenBackup321,
                     modifier = Modifier.padding(top = 24.dp),
                 )
             }
