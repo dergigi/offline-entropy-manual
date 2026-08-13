@@ -1,5 +1,7 @@
 # Offline Entropy Manual
 
+![Offline Entropy Manual](assets/banner.jpg)
+
 Android app that ships entropy / seed backup guides as offline PDFs. Pick what tools you have (dice, coins, cards, …) and open the matching docs.
 
 Inspired by [SurvivalManual](https://github.com/ligi/SurvivalManual).
