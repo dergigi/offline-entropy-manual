@@ -35,3 +35,5 @@ captures/
 
 # Kotlin
 .kotlin/
+
+emulator-home*.png

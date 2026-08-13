@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.outlined.OpenInNew
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -42,6 +43,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.dergigi.offlineentropymanual.data.copyAssetToCache
+import org.dergigi.offlineentropymanual.data.openPdfExternally
 
 private const val RenderWidthPx = 1080
 
@@ -123,6 +125,14 @@ fun PdfViewerScreen(
                         Icon(
                             Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
+                        )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = { openPdfExternally(context, assetFileName) }) {
+                        Icon(
+                            Icons.Outlined.OpenInNew,
+                            contentDescription = "Open in another app",
                         )
                     }
                 },
