@@ -55,16 +55,7 @@ fun PathScreen(
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             item {
-                Column(modifier = Modifier.padding(bottom = 16.dp, top = 8.dp)) {
-                    Text(
-                        text = path.subtitle,
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
-                    )
-                }
-            }
-            item {
-                Column(modifier = Modifier.padding(bottom = 20.dp)) {
+                Column(modifier = Modifier.padding(bottom = 20.dp, top = 8.dp)) {
                     if (path.beforeYouBegin.isNotEmpty()) {
                         Text(
                             text = "Before you begin",
