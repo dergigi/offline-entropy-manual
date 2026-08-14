@@ -82,8 +82,10 @@ fun HomeScreen(
                         modifier = Modifier.padding(top = 8.dp),
                     )
                     Text(
-                        text = "Computers are deterministic and struggle with true randomness, " +
-                            "so gather it offline. That is why this app exists.",
+                        text = "Computers are deterministic and struggle with " +
+                            "true randomness. Because computers can't be trusted it is " +
+                            "advisable to generate your own entropy offline, using true " +
+                            "physical randomness. That is why this app exists.",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                         modifier = Modifier.padding(top = 8.dp),
