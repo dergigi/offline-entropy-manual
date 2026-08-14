@@ -58,16 +58,16 @@ fun WhatIsEntropyScreen(
                 modifier = Modifier.padding(top = 16.dp),
             )
             Text(
-                text = "A BIP39 seed phrase is just a readable form of that randomness. " +
-                    "With enough genuine entropy, the space of possible seeds is so large " +
-                    "that guessing yours is not practical.",
+                text = "Dice, coins, cards, and similar physical processes are useful because " +
+                    "you can see and control them offline. A website or phone app that " +
+                    "\"generates\" a seed for you may also keep a copy.",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 16.dp),
             )
             Text(
-                text = "Dice, coins, cards, and similar physical processes are useful because " +
-                    "you can see and control them offline. A website or phone app that " +
-                    "\"generates\" a seed for you may also keep a copy.",
+                text = "A BIP39 seed phrase is just a readable form of that randomness. " +
+                    "With enough genuine entropy, the space of possible seeds is so large " +
+                    "that guessing yours is not practical.",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 16.dp),
             )
