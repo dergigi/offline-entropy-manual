@@ -51,6 +51,14 @@ fun WhatIsEntropyScreen(
                 style = MaterialTheme.typography.bodyLarge,
             )
             Text(
+                text = "Computers are deterministic and struggle with true randomness. " +
+                    "Because computers can't be trusted it is advisable to generate your " +
+                    "own entropy offline, using true physical randomness. That is why " +
+                    "this app exists.",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 16.dp),
+            )
+            Text(
                 text = "A BIP39 seed phrase is just a readable form of that randomness. " +
                     "With enough genuine entropy, the space of possible seeds is so large " +
                     "that guessing yours is not practical.",
