@@ -15,9 +15,14 @@ import org.dergigi.offlineentropymanual.data.ThemePreference
 private val Seed = Color(0xFF2D5A3D)
 private val OnSeed = Color(0xFFE8E4D9)
 private val SurfaceLight = Color(0xFFF5F2EA)
-private val SurfaceDark = Color(0xFF141414)
 private val OnSurfaceLight = Color(0xFF1A1A1A)
 private val OnSurfaceDark = Color(0xFFE8E4D9)
+
+// Charcoal night: clearly not pure black so Dark Night stays distinct.
+private val NightBg = Color(0xFF2A2A2A)
+private val NightContainer = Color(0xFF333333)
+private val NightContainerHigh = Color(0xFF3C3C3C)
+private val NightVariant = Color(0xFF444444)
 
 private val LightColors = lightColorScheme(
     primary = Seed,
@@ -35,15 +40,37 @@ private val DarkColors = darkColorScheme(
     onPrimary = Color(0xFF0E1A12),
     secondary = Color(0xFF8FBE9A),
     onSecondary = Color(0xFF0E1A12),
-    background = SurfaceDark,
+    background = NightBg,
     onBackground = OnSurfaceDark,
-    surface = SurfaceDark,
+    surface = NightBg,
     onSurface = OnSurfaceDark,
+    surfaceVariant = NightVariant,
+    surfaceDim = NightBg,
+    surfaceBright = NightContainerHigh,
+    surfaceContainerLowest = Color(0xFF242424),
+    surfaceContainerLow = NightBg,
+    surfaceContainer = NightContainer,
+    surfaceContainerHigh = NightContainerHigh,
+    surfaceContainerHighest = NightVariant,
 )
 
-private val DarkNightColors = DarkColors.copy(
+private val DarkNightColors = darkColorScheme(
+    primary = Color(0xFF6B9E78),
+    onPrimary = Color(0xFF0E1A12),
+    secondary = Color(0xFF8FBE9A),
+    onSecondary = Color(0xFF0E1A12),
     background = Color.Black,
+    onBackground = OnSurfaceDark,
     surface = Color.Black,
+    onSurface = OnSurfaceDark,
+    surfaceVariant = Color(0xFF121212),
+    surfaceDim = Color.Black,
+    surfaceBright = Color(0xFF1A1A1A),
+    surfaceContainerLowest = Color.Black,
+    surfaceContainerLow = Color.Black,
+    surfaceContainer = Color.Black,
+    surfaceContainerHigh = Color(0xFF0A0A0A),
+    surfaceContainerHighest = Color(0xFF121212),
 )
 
 @Composable
