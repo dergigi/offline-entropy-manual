@@ -16,13 +16,45 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.LinkAnnotation
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextLinkStyles
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withLink
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WhatIsEntropyScreen(
+    onOpenBip39: () -> Unit,
     onBack: () -> Unit,
 ) {
+    val linkStyle = SpanStyle(
+        color = MaterialTheme.colorScheme.primary,
+        textDecoration = TextDecoration.Underline,
+    )
+    val bip39Paragraph = buildAnnotatedString {
+        append("A ")
+        withLink(
+            LinkAnnotation.Clickable(
+                tag = "bip39",
+                styles = TextLinkStyles(style = linkStyle),
+                linkInteractionListener = { onOpenBip39() },
+            ),
+        ) {
+            withStyle(linkStyle) {
+                append("BIP39 seed phrase")
+            }
+        }
+        append(
+            " is just a readable form of that randomness. " +
+                "With enough genuine entropy, the space of possible seeds is so large " +
+                "that guessing yours is not practical.",
+        )
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -65,9 +97,7 @@ fun WhatIsEntropyScreen(
                 modifier = Modifier.padding(top = 16.dp),
             )
             Text(
-                text = "A BIP39 seed phrase is just a readable form of that randomness. " +
-                    "With enough genuine entropy, the space of possible seeds is so large " +
-                    "that guessing yours is not practical.",
+                text = bip39Paragraph,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 16.dp),
             )
