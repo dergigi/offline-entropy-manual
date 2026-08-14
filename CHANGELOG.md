@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Underline the 3-2-1 backup rule so it reads as a link in the warning list.
+- Make the 3-2-1 backup rule look like a link (primary color + underline) in the warning list.
 
 ## [1.3.0] - 2026-08-14
 

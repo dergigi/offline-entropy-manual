@@ -15,6 +15,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import org.dergigi.offlineentropymanual.BuildConfig
 import org.dergigi.offlineentropymanual.data.openUrl
@@ -40,22 +41,22 @@ fun SeedSafetyWarning(
     onOpenBackup321: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val linkColor = MaterialTheme.colorScheme.error
+    val linkStyle = SpanStyle(
+        color = MaterialTheme.colorScheme.primary,
+        textDecoration = TextDecoration.Underline,
+    )
     val backupRule = buildAnnotatedString {
         append("• Consider the ")
         withLink(
             LinkAnnotation.Clickable(
                 tag = "backup-321",
-                styles = TextLinkStyles(
-                    style = SpanStyle(
-                        color = linkColor,
-                        textDecoration = TextDecoration.Underline,
-                    ),
-                ),
+                styles = TextLinkStyles(style = linkStyle),
                 linkInteractionListener = { onOpenBackup321() },
             ),
         ) {
-            append("3-2-1 backup rule")
+            withStyle(linkStyle) {
+                append("3-2-1 backup rule")
+            }
         }
         append(".")
     }
