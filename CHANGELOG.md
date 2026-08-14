@@ -7,11 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-08-14
+
 ### Added
 
 - About credits Survival Manual as inspiration, with a link to the project.
 - Home "What is entropy?" blurb with a Learn more screen.
 - BIP39 seed phrase on that screen opens the bundled cut-out BIP39 word list PDF.
+- Airgapped device on that screen opens the BIP39 tool checklist.
 
 ## [1.4.0] - 2026-08-14
 
@@ -101,7 +104,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App footer with semantic version (links to GitHub releases) and git hash (links to the commit).
 - Zapstore publishing metadata and release signing support.
 
-[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.2...v1.3.0
 [1.2.2]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.1...v1.2.2
