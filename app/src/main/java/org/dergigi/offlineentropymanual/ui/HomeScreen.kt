@@ -82,6 +82,13 @@ fun HomeScreen(
                         modifier = Modifier.padding(top = 8.dp),
                     )
                     Text(
+                        text = "Computers are deterministic and struggle with true randomness, " +
+                            "so gather it offline. That is why this app exists.",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                    Text(
                         text = "Learn more",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.primary,
