@@ -42,6 +42,7 @@ fun HomeScreen(
     onOpenPath: (EntropyPath) -> Unit,
     onOpenAbout: () -> Unit,
     onOpenSettings: () -> Unit,
+    onOpenWhatIsEntropy: () -> Unit,
     onOpenAirgappedDevice: () -> Unit,
     onOpenBackup321: () -> Unit,
 ) {
@@ -68,7 +69,30 @@ fun HomeScreen(
             verticalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             item {
-                Column(modifier = Modifier.padding(bottom = 16.dp, top = 8.dp)) {
+                Column(modifier = Modifier.padding(bottom = 20.dp, top = 8.dp)) {
+                    Text(
+                        text = "What is entropy?",
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    Text(
+                        text = "Unpredictable randomness. A Bitcoin seed needs enough of it " +
+                            "that nobody else can recreate your words.",
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                    Text(
+                        text = "Learn more",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier
+                            .padding(top = 8.dp)
+                            .clickable(onClick = onOpenWhatIsEntropy),
+                    )
+                }
+            }
+            item {
+                Column(modifier = Modifier.padding(bottom = 16.dp)) {
                     Text(
                         text = "What do you have at hand?",
                         style = MaterialTheme.typography.titleMedium,

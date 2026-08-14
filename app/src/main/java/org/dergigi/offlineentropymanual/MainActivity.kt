@@ -29,6 +29,7 @@ import org.dergigi.offlineentropymanual.ui.PathScreen
 import org.dergigi.offlineentropymanual.ui.PdfViewerScreen
 import org.dergigi.offlineentropymanual.ui.SettingsScreen
 import org.dergigi.offlineentropymanual.ui.SplashScreen
+import org.dergigi.offlineentropymanual.ui.WhatIsEntropyScreen
 import org.dergigi.offlineentropymanual.ui.theme.OfflineEntropyManualTheme
 
 class MainActivity : ComponentActivity() {
@@ -80,6 +81,11 @@ fun OfflineEntropyManualApp(
             launchSingleTop = true
         }
     }
+    val openWhatIsEntropy = {
+        navController.navigate("what-is-entropy") {
+            launchSingleTop = true
+        }
+    }
     val openSettings = {
         navController.navigate("settings") {
             launchSingleTop = true
@@ -103,6 +109,7 @@ fun OfflineEntropyManualApp(
                 },
                 onOpenAbout = { navController.navigate("about") },
                 onOpenSettings = openSettings,
+                onOpenWhatIsEntropy = openWhatIsEntropy,
                 onOpenAirgappedDevice = openAirgapped,
                 onOpenBackup321 = openBackup321,
             )
@@ -165,6 +172,11 @@ fun OfflineEntropyManualApp(
         }
         composable("backup-321") {
             Backup321Screen(
+                onBack = { navController.popBackStack() },
+            )
+        }
+        composable("what-is-entropy") {
+            WhatIsEntropyScreen(
                 onBack = { navController.popBackStack() },
             )
         }

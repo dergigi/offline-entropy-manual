@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - About credits Survival Manual as inspiration, with a link to the project.
+- Home "What is entropy?" blurb with a Learn more screen.
 
 ## [1.4.0] - 2026-08-14
 
