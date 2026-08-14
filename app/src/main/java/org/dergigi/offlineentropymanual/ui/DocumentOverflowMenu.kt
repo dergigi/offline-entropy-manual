@@ -7,6 +7,7 @@ import androidx.compose.material.icons.automirrored.outlined.OpenInNew
 import androidx.compose.material.icons.outlined.Balance
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material.icons.outlined.MoreVert
+import androidx.compose.material.icons.outlined.Print
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -22,6 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import org.dergigi.offlineentropymanual.data.Attribution
 import org.dergigi.offlineentropymanual.data.openPdfExternally
 import org.dergigi.offlineentropymanual.data.openUrl
+import org.dergigi.offlineentropymanual.data.printPdf
 import org.dergigi.offlineentropymanual.data.sharePdf
 
 @Composable
@@ -50,6 +52,16 @@ fun DocumentOverflowMenu(
                 onClick = {
                     expanded = false
                     openPdfExternally(context, assetFileName)
+                },
+            )
+            DropdownMenuItem(
+                text = { Text("Print") },
+                leadingIcon = {
+                    Icon(Icons.Outlined.Print, contentDescription = null)
+                },
+                onClick = {
+                    expanded = false
+                    printPdf(context, assetFileName, title)
                 },
             )
             DropdownMenuItem(
