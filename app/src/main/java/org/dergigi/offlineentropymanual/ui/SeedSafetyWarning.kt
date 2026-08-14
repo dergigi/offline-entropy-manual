@@ -1,6 +1,8 @@
 package org.dergigi.offlineentropymanual.ui
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -15,7 +17,6 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import org.dergigi.offlineentropymanual.BuildConfig
 import org.dergigi.offlineentropymanual.data.openUrl
@@ -41,63 +42,60 @@ fun SeedSafetyWarning(
     onOpenBackup321: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val linkStyle = SpanStyle(
-        color = MaterialTheme.colorScheme.primary,
-        textDecoration = TextDecoration.Underline,
-    )
-    val backupRule = buildAnnotatedString {
-        append("• Consider the ")
-        withLink(
-            LinkAnnotation.Clickable(
-                tag = "backup-321",
-                styles = TextLinkStyles(style = linkStyle),
-                linkInteractionListener = { onOpenBackup321() },
-            ),
-        ) {
-            withStyle(linkStyle) {
-                append("3-2-1 backup rule")
-            }
-        }
-        append(".")
-    }
+    val warningColor = MaterialTheme.colorScheme.error
+    val bodyStyle = MaterialTheme.typography.bodyMedium
 
     Column(modifier = modifier) {
         Text(
             text = "Warning",
             style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.error,
+            color = warningColor,
         )
         Text(
             text = SeedSafetyWarningLead,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.error,
+            style = bodyStyle,
+            color = warningColor,
             modifier = Modifier.padding(top = 8.dp),
         )
         Text(
             text = "In addition:",
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.error,
+            style = bodyStyle,
+            color = warningColor,
             modifier = Modifier.padding(top = 12.dp),
         )
         SeedSafetyWarningPlainBullets.forEach { point ->
             Text(
                 text = "• $point",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.error,
+                style = bodyStyle,
+                color = warningColor,
                 modifier = Modifier.padding(top = 6.dp, start = 4.dp),
             )
         }
-        Text(
-            text = backupRule,
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.error,
-            modifier = Modifier.padding(top = 6.dp, start = 4.dp),
-        )
+        Row(modifier = Modifier.padding(top = 6.dp, start = 4.dp)) {
+            Text(
+                text = "• Consider the ",
+                style = bodyStyle,
+                color = warningColor,
+            )
+            Text(
+                text = "3-2-1 backup rule",
+                style = bodyStyle.copy(
+                    color = MaterialTheme.colorScheme.primary,
+                    textDecoration = TextDecoration.Underline,
+                ),
+                modifier = Modifier.clickable(onClick = onOpenBackup321),
+            )
+            Text(
+                text = ".",
+                style = bodyStyle,
+                color = warningColor,
+            )
+        }
         SeedSafetyWarningTrailingBullets.forEach { point ->
             Text(
                 text = "• $point",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.error,
+                style = bodyStyle,
+                color = warningColor,
                 modifier = Modifier.padding(top = 6.dp, start = 4.dp),
             )
         }
