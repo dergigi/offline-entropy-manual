@@ -15,6 +15,7 @@ import androidx.compose.material.icons.outlined.Casino
 import androidx.compose.material.icons.outlined.ContentCut
 import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.JoinInner
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Style
 import androidx.compose.material.icons.outlined.Toll
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,6 +41,7 @@ import org.dergigi.offlineentropymanual.data.EntropyPaths
 fun HomeScreen(
     onOpenPath: (EntropyPath) -> Unit,
     onOpenAbout: () -> Unit,
+    onOpenSettings: () -> Unit,
     onOpenAirgappedDevice: () -> Unit,
     onOpenBackup321: () -> Unit,
 ) {
@@ -48,6 +50,9 @@ fun HomeScreen(
             TopAppBar(
                 title = { Text("Offline Entropy Manual") },
                 actions = {
+                    IconButton(onClick = onOpenSettings) {
+                        Icon(Icons.Outlined.Settings, contentDescription = "Settings")
+                    }
                     IconButton(onClick = onOpenAbout) {
                         Icon(Icons.Outlined.Info, contentDescription = "About")
                     }

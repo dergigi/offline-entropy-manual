@@ -1,11 +1,16 @@
 package org.dergigi.offlineentropymanual.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
+import org.dergigi.offlineentropymanual.data.TextSizePreference
+import org.dergigi.offlineentropymanual.data.ThemePreference
 
 private val Seed = Color(0xFF2D5A3D)
 private val OnSeed = Color(0xFFE8E4D9)
@@ -36,13 +41,39 @@ private val DarkColors = darkColorScheme(
     onSurface = OnSurfaceDark,
 )
 
+private val DarkNightColors = DarkColors.copy(
+    background = Color.Black,
+    surface = Color.Black,
+)
+
 @Composable
 fun OfflineEntropyManualTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    themePreference: ThemePreference = ThemePreference.System,
+    textSizePreference: TextSizePreference = TextSizePreference.Medium,
     content: @Composable () -> Unit,
 ) {
-    MaterialTheme(
-        colorScheme = if (darkTheme) DarkColors else LightColors,
-        content = content,
-    )
+    val systemDark = isSystemInDarkTheme()
+    val darkTheme = when (themePreference) {
+        ThemePreference.Day -> false
+        ThemePreference.Night, ThemePreference.DarkNight -> true
+        ThemePreference.System -> systemDark
+    }
+    val colors = when {
+        !darkTheme -> LightColors
+        themePreference == ThemePreference.DarkNight -> DarkNightColors
+        else -> DarkColors
+    }
+
+    val density = LocalDensity.current
+    CompositionLocalProvider(
+        LocalDensity provides Density(
+            density = density.density,
+            fontScale = density.fontScale * textSizePreference.scale,
+        ),
+    ) {
+        MaterialTheme(
+            colorScheme = colors,
+            content = content,
+        )
+    }
 }

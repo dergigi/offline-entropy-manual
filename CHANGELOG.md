@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Settings screen (Survival Manual style): Day/Night theme (Day, Night, Dark Night, System) and text size (Tiny through Huge).
+
 ## [1.3.0] - 2026-08-14
 
 ### Added

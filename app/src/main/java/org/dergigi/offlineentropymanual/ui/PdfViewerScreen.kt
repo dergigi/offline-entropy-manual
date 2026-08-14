@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.Print
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -43,7 +44,7 @@ import org.dergigi.offlineentropymanual.data.Attribution
 import org.dergigi.offlineentropymanual.data.copyAssetToCache
 import org.dergigi.offlineentropymanual.data.printPdf
 
-private const val RenderWidthPx = 1080
+private const val BaseRenderWidthPx = 1080
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,14 +52,17 @@ fun PdfViewerScreen(
     title: String,
     attribution: Attribution,
     assetFileName: String,
+    textSizeScale: Float = 1f,
     onOpenAirgappedDevice: () -> Unit,
     onOpenBackup321: () -> Unit,
+    onOpenSettings: () -> Unit,
     onBack: () -> Unit,
 ) {
     val context = LocalContext.current
     var pageBitmaps by remember { mutableStateOf<List<Bitmap>>(emptyList()) }
     var loading by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
+    val renderWidthPx = (BaseRenderWidthPx * textSizeScale).toInt().coerceAtLeast(720)
 
     DisposableEffect(Unit) {
         onDispose {
@@ -68,7 +72,7 @@ fun PdfViewerScreen(
         }
     }
 
-    LaunchedEffect(assetFileName) {
+    LaunchedEffect(assetFileName, renderWidthPx) {
         loading = true
         error = null
         pageBitmaps.forEach { bitmap ->
@@ -84,9 +88,9 @@ fun PdfViewerScreen(
                         (0 until renderer.pageCount).map { index ->
                             renderer.openPage(index).use { page ->
                                 val aspect = page.height.toFloat() / page.width.toFloat()
-                                val heightPx = (RenderWidthPx * aspect).toInt().coerceAtLeast(1)
+                                val heightPx = (renderWidthPx * aspect).toInt().coerceAtLeast(1)
                                 Bitmap.createBitmap(
-                                    RenderWidthPx,
+                                    renderWidthPx,
                                     heightPx,
                                     Bitmap.Config.ARGB_8888,
                                 ).also { bitmap ->
@@ -138,6 +142,9 @@ fun PdfViewerScreen(
                     }
                 },
                 actions = {
+                    IconButton(onClick = onOpenSettings) {
+                        Icon(Icons.Outlined.Settings, contentDescription = "Settings")
+                    }
                     IconButton(
                         onClick = { printPdf(context, assetFileName, title) },
                         enabled = !loading && error == null,

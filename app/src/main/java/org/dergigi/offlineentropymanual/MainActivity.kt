@@ -5,20 +5,29 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import org.dergigi.offlineentropymanual.data.AppSettings
 import org.dergigi.offlineentropymanual.data.EntropyPaths
 import org.dergigi.offlineentropymanual.data.ManualDocuments
+import org.dergigi.offlineentropymanual.data.TextSizePreference
+import org.dergigi.offlineentropymanual.data.ThemePreference
 import org.dergigi.offlineentropymanual.ui.AboutScreen
 import org.dergigi.offlineentropymanual.ui.AirgappedBip39ToolScreen
 import org.dergigi.offlineentropymanual.ui.Backup321Screen
 import org.dergigi.offlineentropymanual.ui.HomeScreen
 import org.dergigi.offlineentropymanual.ui.PathScreen
 import org.dergigi.offlineentropymanual.ui.PdfViewerScreen
+import org.dergigi.offlineentropymanual.ui.SettingsScreen
 import org.dergigi.offlineentropymanual.ui.SplashScreen
 import org.dergigi.offlineentropymanual.ui.theme.OfflineEntropyManualTheme
 
@@ -28,15 +37,38 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            OfflineEntropyManualTheme {
-                OfflineEntropyManualApp()
+            val context = LocalContext.current
+            var themePreference by remember { mutableStateOf(AppSettings.theme(context)) }
+            var textSizePreference by remember { mutableStateOf(AppSettings.textSize(context)) }
+
+            OfflineEntropyManualTheme(
+                themePreference = themePreference,
+                textSizePreference = textSizePreference,
+            ) {
+                OfflineEntropyManualApp(
+                    themePreference = themePreference,
+                    textSizePreference = textSizePreference,
+                    onThemeChange = { value ->
+                        AppSettings.setTheme(context, value)
+                        themePreference = value
+                    },
+                    onTextSizeChange = { value ->
+                        AppSettings.setTextSize(context, value)
+                        textSizePreference = value
+                    },
+                )
             }
         }
     }
 }
 
 @Composable
-fun OfflineEntropyManualApp() {
+fun OfflineEntropyManualApp(
+    themePreference: ThemePreference,
+    textSizePreference: TextSizePreference,
+    onThemeChange: (ThemePreference) -> Unit,
+    onTextSizeChange: (TextSizePreference) -> Unit,
+) {
     val navController = rememberNavController()
     val openAirgapped = {
         navController.navigate("airgapped") {
@@ -45,6 +77,11 @@ fun OfflineEntropyManualApp() {
     }
     val openBackup321 = {
         navController.navigate("backup-321") {
+            launchSingleTop = true
+        }
+    }
+    val openSettings = {
+        navController.navigate("settings") {
             launchSingleTop = true
         }
     }
@@ -65,6 +102,7 @@ fun OfflineEntropyManualApp() {
                     navController.navigate("path/${path.id}")
                 },
                 onOpenAbout = { navController.navigate("about") },
+                onOpenSettings = openSettings,
                 onOpenAirgappedDevice = openAirgapped,
                 onOpenBackup321 = openBackup321,
             )
@@ -95,8 +133,10 @@ fun OfflineEntropyManualApp() {
                 title = document.title,
                 attribution = document.attribution,
                 assetFileName = document.assetFileName,
+                textSizeScale = textSizePreference.scale,
                 onOpenAirgappedDevice = openAirgapped,
                 onOpenBackup321 = openBackup321,
+                onOpenSettings = openSettings,
                 onBack = { navController.popBackStack() },
             )
         }
@@ -105,6 +145,15 @@ fun OfflineEntropyManualApp() {
                 onBack = { navController.popBackStack() },
                 onOpenAirgappedDevice = openAirgapped,
                 onOpenBackup321 = openBackup321,
+            )
+        }
+        composable("settings") {
+            SettingsScreen(
+                themePreference = themePreference,
+                textSizePreference = textSizePreference,
+                onThemeChange = onThemeChange,
+                onTextSizeChange = onTextSizeChange,
+                onBack = { navController.popBackStack() },
             )
         }
         composable("airgapped") {
