@@ -177,6 +177,11 @@ fun OfflineEntropyManualApp(
         }
         composable("what-is-entropy") {
             WhatIsEntropyScreen(
+                onOpenBip39 = {
+                    navController.navigate("pdf/bip39") {
+                        launchSingleTop = true
+                    }
+                },
                 onBack = { navController.popBackStack() },
             )
         }
