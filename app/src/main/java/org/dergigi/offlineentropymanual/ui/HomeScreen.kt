@@ -76,7 +76,7 @@ fun HomeScreen(
                     )
                     Text(
                         text = "Unpredictable randomness. A Bitcoin seed needs enough of it " +
-                            "that nobody else can recreate your words.",
+                            "that nobody else can guess your words (and thus steal your coins).",
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                         modifier = Modifier.padding(top = 8.dp),
