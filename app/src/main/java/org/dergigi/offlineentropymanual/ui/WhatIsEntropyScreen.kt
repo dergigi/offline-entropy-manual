@@ -53,8 +53,7 @@ fun WhatIsEntropyScreen(
             Text(
                 text = "Computers are deterministic and struggle with true randomness. " +
                     "Because computers can't be trusted it is advisable to generate your " +
-                    "own entropy offline, using true physical randomness. That is why " +
-                    "this app exists.",
+                    "own entropy offline, using true physical randomness.",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 16.dp),
             )
