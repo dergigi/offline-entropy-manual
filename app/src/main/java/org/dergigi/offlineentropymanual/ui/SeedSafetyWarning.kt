@@ -13,6 +13,7 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLinkStyles
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withLink
 import androidx.compose.ui.unit.dp
 import org.dergigi.offlineentropymanual.BuildConfig
@@ -45,7 +46,12 @@ fun SeedSafetyWarning(
         withLink(
             LinkAnnotation.Clickable(
                 tag = "backup-321",
-                styles = TextLinkStyles(style = SpanStyle(color = linkColor)),
+                styles = TextLinkStyles(
+                    style = SpanStyle(
+                        color = linkColor,
+                        textDecoration = TextDecoration.Underline,
+                    ),
+                ),
                 linkInteractionListener = { onOpenBackup321() },
             ),
         ) {
