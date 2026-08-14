@@ -80,7 +80,7 @@ fun SeedSafetyWarning(
             Text(
                 text = "3-2-1 backup rule",
                 style = bodyStyle.copy(
-                    color = MaterialTheme.colorScheme.primary,
+                    color = warningColor,
                     textDecoration = TextDecoration.Underline,
                 ),
                 modifier = Modifier.clickable(onClick = onOpenBackup321),
