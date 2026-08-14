@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun WhatIsEntropyScreen(
     onOpenBip39: () -> Unit,
+    onOpenAirgappedDevice: () -> Unit,
     onBack: () -> Unit,
 ) {
     val linkStyle = SpanStyle(
@@ -53,6 +54,25 @@ fun WhatIsEntropyScreen(
                 "With enough genuine entropy, the space of possible seeds is so large " +
                 "that guessing yours is not practical.",
         )
+    }
+    val guidesParagraph = buildAnnotatedString {
+        append(
+            "This app only ships the guides. It does not roll dice for you, and it " +
+                "does not calculate the BIP39 checksum word. Gather the entropy yourself, " +
+                "then finish the checksum on a hardware wallet or other ",
+        )
+        withLink(
+            LinkAnnotation.Clickable(
+                tag = "airgapped-device",
+                styles = TextLinkStyles(style = linkStyle),
+                linkInteractionListener = { onOpenAirgappedDevice() },
+            ),
+        ) {
+            withStyle(linkStyle) {
+                append("airgapped device")
+            }
+        }
+        append(" you trust.")
     }
 
     Scaffold(
@@ -102,10 +122,7 @@ fun WhatIsEntropyScreen(
                 modifier = Modifier.padding(top = 16.dp),
             )
             Text(
-                text = "This app only ships the guides. It does not roll dice for you, and it " +
-                    "does not calculate the BIP39 checksum word. Gather the entropy yourself, " +
-                    "then finish the checksum on a hardware wallet or other airgapped device " +
-                    "you trust.",
+                text = guidesParagraph,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 16.dp),
             )

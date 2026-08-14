@@ -182,6 +182,7 @@ fun OfflineEntropyManualApp(
                         launchSingleTop = true
                     }
                 },
+                onOpenAirgappedDevice = openAirgapped,
                 onBack = { navController.popBackStack() },
             )
         }
