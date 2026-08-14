@@ -66,6 +66,16 @@ fun AboutScreen(
                 modifier = Modifier.padding(top = 12.dp),
             )
             Text(
+                text = "Inspired by ligi's Survival Manual: an offline-first reader with a " +
+                    "simple path through serious material.",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 12.dp),
+            )
+            LinkText(
+                url = "https://github.com/ligi/SurvivalManual",
+                label = "github.com/ligi/SurvivalManual",
+            )
+            Text(
                 text = "Attribution",
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(top = 24.dp),
