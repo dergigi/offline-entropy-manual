@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-08-14
+
 ### Added
 
 - Settings screen (Survival Manual style): Day/Night theme (Day, Night, Dark Night, System) and text size (Tiny through Huge).
@@ -93,7 +95,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App footer with semantic version (links to GitHub releases) and git hash (links to the commit).
 - Zapstore publishing metadata and release signing support.
 
-[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/dergigi/offline-entropy-manual/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.2...v1.3.0
 [1.2.2]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/dergigi/offline-entropy-manual/compare/v1.2.0...v1.2.1
