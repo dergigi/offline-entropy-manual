@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- README screenshots of home, a path, Seed Picker Solitaire, and the Diceware lookup table.
+- README screenshots of home, Seed Picker Solitaire, and the Diceware lookup table.
 
 ## [1.6.0] - 2026-08-21
 
