@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Publish Offline Entropy Manual to Zapstore.
 # Requires: zsp on PATH, SIGN_WITH set to nsec1… / bunker://… / browser
+# SIGN_WITH is read from the environment, or from a gitignored .env in the repo root.
 #
 # Always publishes via a zapstore.yaml-derived config so release_notes
 # (CHANGELOG.md) are applied. Publishing a bare .apk skips the config and
@@ -10,8 +11,16 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
+if [[ -z "${SIGN_WITH:-}" && -f "$ROOT/.env" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$ROOT/.env"
+  set +a
+fi
+
 if [[ -z "${SIGN_WITH:-}" ]]; then
   echo "Set SIGN_WITH to your Nostr signing method before publishing." >&2
+  echo "  Put SIGN_WITH=… in .env, or" >&2
   echo "  export SIGN_WITH='nsec1…'          # or" >&2
   echo "  export SIGN_WITH='bunker://…'      # or" >&2
   echo "  export SIGN_WITH=browser" >&2

@@ -40,9 +40,10 @@ Config lives in [`zapstore.yaml`](zapstore.yaml) (includes publisher `pubkey`). 
 3. Publish with your Nostr key for `npub1dergggklka99wwrs92yz8wdjs952h2ux2ha2ed598ngwu9w7a6fsh9xzpc`:
 
 ```bash
-export SIGN_WITH='nsec1…'   # or bunker://… or browser
 ./scripts/zapstore-publish.sh
 ```
+
+`SIGN_WITH` is read from a gitignored `.env` in the repo root (`SIGN_WITH=nsec1…`, `bunker://…`, or `browser`). An already-exported `SIGN_WITH` wins over `.env`.
 
 The script publishes through `zapstore.yaml` (not a bare APK path) so `release_notes` from [`CHANGELOG.md`](CHANGELOG.md) are included. Use `ZSP_EXTRA_ARGS='--overwrite-release'` to replace an already-published version.
 
