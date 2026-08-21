@@ -120,6 +120,20 @@ fun AboutScreen(
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier.padding(top = 24.dp),
             )
+            Text(
+                text = "Feedback",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(top = 24.dp),
+            )
+            Text(
+                text = "Found a problem? Open a GitHub issue when you have a network.",
+                style = MaterialTheme.typography.bodyMedium,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+            LinkText(
+                url = "https://github.com/dergigi/offline-entropy-manual/issues/new",
+                label = "Report an issue",
+            )
             SafetyFooter(
                 onOpenAirgappedDevice = onOpenAirgappedDevice,
                 onOpenBackup321 = onOpenBackup321,

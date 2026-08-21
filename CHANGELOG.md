@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Zapstore listing screenshots (status bar cropped).
+- About page link to open a new GitHub issue.
 
 ## [1.5.0] - 2026-08-14
 
