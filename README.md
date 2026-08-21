@@ -8,6 +8,12 @@ The guides help you generate entropy offline. The last BIP39 word (12th or 24th)
 
 Inspired by [SurvivalManual](https://github.com/ligi/SurvivalManual).
 
+<p>
+  <img src="screenshots/01-home.png" width="240" alt="Home: pick tools at hand">
+  <img src="screenshots/02-path-dice.png" width="240" alt="Dice path with precautions">
+  <img src="screenshots/07-viewer-diceware.png" width="240" alt="Diceware lookup table">
+</p>
+
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Notable changes are listed in [`CHANGELOG.md`](CHANGELOG.md) using [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ```bash
