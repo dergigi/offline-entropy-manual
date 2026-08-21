@@ -10,8 +10,8 @@ Inspired by [SurvivalManual](https://github.com/ligi/SurvivalManual).
 
 <p>
   <img src="screenshots/01-home.png" width="240" alt="Home: pick tools at hand">
-  <img src="screenshots/05-viewer-solitaire.png" width="240" alt="Seed Picker Solitaire PDF">
   <img src="screenshots/07-viewer-diceware.png" width="240" alt="Diceware lookup table">
+  <img src="screenshots/05-viewer-solitaire.png" width="240" alt="Seed Picker Solitaire PDF">
 </p>
 
 Versions follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html). Notable changes are listed in [`CHANGELOG.md`](CHANGELOG.md) using [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
