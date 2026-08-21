@@ -12,10 +12,24 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
 if [[ -z "${SIGN_WITH:-}" && -f "$ROOT/.env" ]]; then
-  set -a
-  # shellcheck disable=SC1091
-  source "$ROOT/.env"
-  set +a
+  # Parse .env without `source`: bunker URLs contain `&` and would break the shell.
+  SIGN_WITH="$(python3 - <<'PY'
+from pathlib import Path
+for line in Path(".env").read_text().splitlines():
+    s = line.strip()
+    if not s or s.startswith("#") or "=" not in s:
+        continue
+    key, value = s.split("=", 1)
+    if key.strip() != "SIGN_WITH":
+        continue
+    value = value.strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+        value = value[1:-1]
+    print(value, end="")
+    break
+PY
+)"
+  export SIGN_WITH
 fi
 
 if [[ -z "${SIGN_WITH:-}" ]]; then

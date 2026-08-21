@@ -43,7 +43,7 @@ Config lives in [`zapstore.yaml`](zapstore.yaml) (includes publisher `pubkey`). 
 ./scripts/zapstore-publish.sh
 ```
 
-`SIGN_WITH` is read from a gitignored `.env` in the repo root (`SIGN_WITH=nsec1…`, `bunker://…`, or `browser`). An already-exported `SIGN_WITH` wins over `.env`.
+`SIGN_WITH` is read from a gitignored `.env` in the repo root (`SIGN_WITH=nsec1…`, `bunker://…`, or `browser`). Quotes are optional. An already-exported `SIGN_WITH` wins over `.env`.
 
 The script publishes through `zapstore.yaml` (not a bare APK path) so `release_notes` from [`CHANGELOG.md`](CHANGELOG.md) are included. Use `ZSP_EXTRA_ARGS='--overwrite-release'` to replace an already-published version.
 
