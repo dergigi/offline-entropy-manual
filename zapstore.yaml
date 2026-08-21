@@ -24,6 +24,14 @@ tags:
 license: MIT
 website: https://github.com/dergigi/offline-entropy-manual
 icon: ./zapstore-icon.png
+images:
+  - ./screenshots/01-home.png
+  - ./screenshots/02-path-dice.png
+  - ./screenshots/03-path-coin.png
+  - ./screenshots/04-path-cards.png
+  - ./screenshots/05-viewer-solitaire.png
+  - ./screenshots/06-print-bip39.png
+  - ./screenshots/07-viewer-diceware.png
 
 metadata_sources:
   - github

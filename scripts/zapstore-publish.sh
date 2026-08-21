@@ -73,10 +73,21 @@ ICON="$ROOT/zapstore-icon.png"
 {
   # Drop path fields so we can rewrite them as absolute paths. Relative paths
   # are resolved from the temp config directory and break.
-  grep -vE '^(release_source|release_notes|icon):' zapstore.yaml || true
+  awk '
+    /^images:/ { skip=1; next }
+    skip && /^[[:space:]]*-/ { next }
+    skip && /^[^[:space:]]/ { skip=0 }
+    skip { next }
+    !/^(release_source|release_notes|icon):/
+  ' zapstore.yaml || true
   echo "release_notes: $NOTES"
   echo "release_source: $APK"
   echo "icon: $ICON"
+  echo "images:"
+  for img in "$ROOT"/screenshots/[0-9][0-9]-*.png; do
+    [[ -f "$img" ]] || continue
+    echo "  - $img"
+  done
 } > "$PUBLISH_CFG"
 
 echo "Publishing to Zapstore (notes from CHANGELOG.md via zapstore.yaml)…"
