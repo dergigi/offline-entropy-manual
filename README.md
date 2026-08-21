@@ -11,6 +11,7 @@ Inspired by [SurvivalManual](https://github.com/ligi/SurvivalManual).
 <p>
   <img src="screenshots/01-home.png" width="240" alt="Home: pick tools at hand">
   <img src="screenshots/02-path-dice.png" width="240" alt="Dice path with precautions">
+  <img src="screenshots/05-viewer-solitaire.png" width="240" alt="Seed Picker Solitaire PDF">
   <img src="screenshots/07-viewer-diceware.png" width="240" alt="Diceware lookup table">
 </p>
 
